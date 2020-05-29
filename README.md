@@ -1,5 +1,6 @@
 # shadodwm
 My personal fork of dwm
+<<<<<<< HEAD
 
 Requirements
 ------------
@@ -44,3 +45,5 @@ Configuration
 -------------
 The configuration of dwm is done by creating a custom config.h
 and (re)compiling the source code.
+=======
+>>>>>>> 6a9c51799fd93821469227f7df89f2296e1dfa2e
