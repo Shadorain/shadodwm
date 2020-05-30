@@ -28,8 +28,8 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     iscentered   isfloating   monitor  scratchkey */
-	{ "Gimp",     NULL,       NULL,       0,            0,           1,           -1,       0 },
-    { NULL,       NULL,   "scratchpad",   0,            1,           1,           -1,       's' },
+	{ "Gimp",     NULL,       NULL,       0,            0,           1,           -1,       0  },
+    { NULL,       NULL,   "scratchpad",   0,            1,           1,           -1,      's' },
  //	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           0,           -1 },
 };
 
@@ -64,7 +64,7 @@ static const char *termcmd[]  = { "kitty", NULL };
 #include "selfrestart.c"
 
 /*First arg only serves to match against key in rules*/
-static const char *scratchpadcmd[] = {"s", "st", "-t", "scratchpad", NULL}; 
+static const char *scratchpadcmd[] = {"s", "kitty", "-T", "scratchpad", NULL}; 
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
