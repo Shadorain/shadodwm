@@ -757,7 +757,7 @@ drawbar(Monitor *m)
 	/* draw status first so it can be overdrawn by tags later */
 	if (m == selmon) { /* status is only drawn on selected monitor */
 		drw_setscheme(drw, scheme[SchemeNorm]);
-		tw = TEXTW(stext) - lrpad + 2; /* 2px right padding */
+		tw = TEXTW(stext) - lrpad + 0; /* 2px right padding */  /*~2 -> 0*/
 		drw_text(drw, m->ww - tw, 0, tw, bh, 0, stext, 0);
 	}
 
@@ -772,7 +772,7 @@ drawbar(Monitor *m)
 		drw_setscheme(drw, scheme[m->tagset[m->seltags] & 1 << i ? SchemeSel : SchemeNorm]);
 		drw_text(drw, x, 0, w, bh, lrpad / 2, tags[i], urg & 1 << i);
 		if (occ & 1 << i)
-			drw_rect(drw, x + boxw, 0, w - ( 1 * boxw + 3), boxw,
+			drw_rect(drw, x + boxw, 0, w - ( 1 * boxw + 4), boxw, /*~2 * boxw + 1  -->  1 * boxw + 4*/
 			    m == selmon && selmon->sel && selmon->sel->tags & 1 << i,
 			    urg & 1 << i);
 
