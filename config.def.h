@@ -27,9 +27,10 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     iscentered   isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            0,           1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           0,           -1 },
+	/* class      instance    title       tags mask     iscentered   isfloating   monitor  scratchkey */
+	{ "Gimp",     NULL,       NULL,       0,            0,           1,           -1,       0 },
+    { NULL,       NULL,   "scratchpad",   0,            1,           1,           -1,       's' },
+ //	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           0,           -1 },
 };
 
 /* layout(s) */
@@ -58,7 +59,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "kitty", NULL };
 
 #include "selfrestart.c"
 
