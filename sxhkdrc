@@ -67,10 +67,10 @@ super + m
 super + d
     /home/shadow/.config/rofi/scripts/time.sh
 
-super + shift + v    
+super + alt + v    
     /home/shadow/.config/rofi/scripts/volume.sh
 
-super + b
+super + alt + b
     /home/shadow/.config/rofi/scripts/battery.sh
 
 super + w
