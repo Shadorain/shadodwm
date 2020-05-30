@@ -18,103 +18,19 @@ super + ctrl + @F12
 
 #}}}
 # --- Window Controls --- # {{{
-# Kill Window
-super + shift + c 
-	 bspc node -c && ~/.config/scripts/bspunhide
-# Toggle Fullscreen
-super + f
-	~/.config/scripts/bspfullscreen && ~/.config/scripts/bspunhide
-
 # -- Window Movement -- # {{{
-# Change Window by Direction
-super + {h,j,k,l}
-	bspc node -f {west,south,north,east}
-# Swap Window by Direction
-super + shift + {h,j,k,l}
-	bspc node -s {west,south,north,east}
-
-# Expand Window Outward
-super + alt + {h,j,k,l}
-	bspc node -z {left -20 0, bottom 0 20, top 0 -20, right 20 0}
-# Contract Window Inward
-ctrl + super + {h,j,k,l}
-	bspc node -z {left -20 0, top 0 20, bottom 0 -20, left 20 0}
-
-# Swap Current Node with Largest
-super + g
-	bspc node -s biggest
-# Focus Last Node
-super + grave
-	bspc node -f last
-
 # }}}
-
 # -- Floating Windows -- # {{{
-# Toggle Floating
-super + shift + f
-	bspc node focused.tiled -t floating || bspc node focused.floating -t tiled
-# Move Floating Window
-shift + {Left, Right, Up, Down}
-	xdo move {-x -20, -x +20, -y -20, -y +20}
 # }}}
 #}}}
 # --- Desktop Controls --- # {{{
-# Show Desktop: hide
-super + d
-    ~/.config/scripts/bsphide
-# Show Desktop: unhide
-super + alt + d
-    ~/.config/scripts/bspunhide
-
 # -- Desktop Movement -- # {{{
-# Shift one Desktop Over
-ctrl + alt + {Left, Right}
-    {bspc desktop -f prev, bspc desktop -f next}
-# Change to Low Desktop
-super + {0-9}
-	bspc desktop -f {X,1-7,I,V}
-# Change to Med Desktop
-super + {@KP_End,@KP_Down,@KP_Next}
-    bspc desktop -f {I, V, X} 
-# Change to High Desktop
-super + {@KP_Left,@KP_Begin,@KP_Up,@KP_Right}
-    bspc desktop -f {L, C, M, D}
-# Move Node to Low Desktop
-super + shift + {0-9}
-	bspc node -d {X,1-7,I,V} && ~/.config/scripts/bspunhide
-# Move Node to Med Desktop
-super + shift + {@KP_End,@KP_Down,@KP_Next}
-    bspc node -d {I, V, X}
-# Move Node to High Desktop 
-super + shift + {@KP_Left,@KP_Begin,@KP_Up,@KP_Right}
-    bspc node -d {L, C, M, D}
-# Move Node and Swap to Low Desktop
-super + ctrl + {0-9}
-	bspc node -d {X,1-7,I,V} && bspc dekstop -f {X,1-7,I,V}
-# Move Node and Swap to Med Desktop
-super + ctrl + {@KP_End,@KP_Down,@KP_Next}
-    bspc node -d {I, V, X} && bspc desktop -f {I, V, X}
-# Move Node and Swap to High Desktop
-super + ctrl + {@KP_Left,@KP_Begin,@KP_Up, @KP_Right}
-    bspc node -d {L, C, M, D} && bspc desktop -f {L, C, M, D}
-# Focus Last Desktop
-super + shift + grave
-    bspc desktop -f last
-
-# Change between Tiled and Monacle 
-super + m
-	bspc desktop -l next
-
-# Rotate Desktop 90*
-super + r
-    bspc node @/ -R 90
 # }}}
 #}}}
 # --- Utilities --- # {{{
 # Terminal Emulator
 super + Return
     kitty
-
 # -- File Manager Controls -- # {{{
 # Vifm
 super + v
@@ -123,7 +39,6 @@ super + v
 super + ctrl + d
     dolphin
 # }}}
-
 # -- Rofi Config -- # {{{
 super + @space
 	/home/shadow/.config/scripts/launcher
@@ -133,61 +48,55 @@ super + ctrl + @space
 # Rofi Windows Menu
 super + Tab
     /home/shadow/.config/scripts/launcher-window
-
 # - ROFI BLOCKS -
 # Apps menu
-alt + a
+super + a
     /home/shadow/.config/rofi/scripts/apps.sh
 
 # Power menu
-alt + s
+super + s
     /home/shadow/.config/rofi/scripts/menu_powermenu.sh
 
 # Launcher FS
-alt + e
+super + e
     /home/shadow/.config/rofi/launchers/launcher.sh
 
-alt + m
+super + m
     /home/shadow/.config/rofi/scripts/mpd.sh
     
-alt + d
+super + d
     /home/shadow/.config/rofi/scripts/time.sh
 
-alt + v    
+super + shift + v    
     /home/shadow/.config/rofi/scripts/volume.sh
 
-alt + b
+super + b
     /home/shadow/.config/rofi/scripts/battery.sh
 
-alt + w
+super + w
     /home/shadow/.config/rofi/scripts/network.sh
 
-alt + q
+super + q
     /home/shadow/.config/rofi/scripts/quicklinks.sh
 
-alt + g
+super + g
     /home/shadow/.config/rofi/scripts/gitrepos.sh
 # }}}
-
 # Calcurse
 super + ctrl + m
     kitty calcurse
-
 # ADB 
 super + alt + a
     kitty killall adb && adb tcpip 5555 && adb connect 192.168.1.180:5555
 # Scrcpy
 super + alt + s
     kitty scrcpy -m 1024 &
-
 # Browser
 super + b
     firefox
-
 # Discord, Spotify, VBox
 super + shift + {d, s, v}
 	{discord, spotify, virtualbox}
-
 # Pulsemixer, HTop, Wifi-Menu
 super + ctrl + {a,t,i}
 	kitty {pulsemixer, htop, sudo wifi-menu}
@@ -234,17 +143,11 @@ super + y
 # Restart / Shutdown
 super + shift + {r,t}
     /home/shadow/.config/rofi/scripts/menu_powermenu.sh
-    #onedrive 
-	#~/.config/scripts/prompt {"Confirm Reboot?" "reboot", "Confirm shutdown?" "shutdown -h now"}
 
 # Lockscreen
 super + p
-	/home/shadow/.i3/i3lock-multimonitor/lock
-    #betterlockscreen -l blur -r 1920x1080  -b 0.2 -t "Welcome back, Shado..."
-
-# System Polybar Toggle
-super + @Pause
-    polybar-msg -p $(pgrep polybar | cut -d $'\n' -f 2) cmd toggle
+	#/home/shadow/.i3/i3lock-multimonitor/lock
+    betterlockscreen -l blur -r 1920x1080  -b 0.2 -t "Welcome back, Shado..."
 
 XF86PowerDown
     /home/shadow/.config/rofi/scripts/menu_powermenu.sh
@@ -286,18 +189,10 @@ super + shift + m
 # }}}
 # Set Display
 @F7
-    ~/.screenlayout/right.sh
-
+    ~/.screenlayout/right2.sh
 # Compositor 
 super + @F9
     killall picom
-
-# Show / Hide Polybar {{{
-super + ctrl + p
-    /home/shadow/.config/scripts/pbar_hide
-super + alt + p
-    /home/shadow/.config/scripts/pbar_show
-# }}}
 #}}}
 # ----------------------------------------------------- #
 
