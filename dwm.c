@@ -750,14 +750,14 @@ drawbar(Monitor *m)
 {
 	int x, w, tw = 0;
 	int boxs = drw->fonts->h / 9;
-	int boxw = drw->fonts->h / 6 + 2;
+	int boxw = drw->fonts->h / 8 + 0; // 6 + 2 --> 8 + 0
 	unsigned int i, occ = 0, urg = 0;
 	Client *c;
 
 	/* draw status first so it can be overdrawn by tags later */
 	if (m == selmon) { /* status is only drawn on selected monitor */
 		drw_setscheme(drw, scheme[SchemeNorm]);
-		tw = TEXTW(stext) - lrpad + 0; /* 2px right padding */  /*~2 -> 0*/
+		tw = TEXTW(stext) - lrpad + 2; /* 2px right padding */  /*~2 -> 0*/
 		drw_text(drw, m->ww - tw, 0, tw, bh, 0, stext, 0);
 	}
 
