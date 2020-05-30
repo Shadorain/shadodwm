@@ -47,10 +47,6 @@ super + g
 super + grave
 	bspc node -f last
 
-# Useful for monocle: change previous/next window
-alt + f
-    bspc node -f last
-
 # }}}
 
 # -- Floating Windows -- # {{{
