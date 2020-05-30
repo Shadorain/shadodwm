@@ -1,58 +1,24 @@
---- dwm.c
-+++ dwm.c
-@@ -92,7 +92,7 @@ struct Client {
- 	int basew, baseh, incw, inch, maxw, maxh, minw, minh;
+--- dwm.c	2019-02-02 12:55:28.000000000 +0000
++++ dwm.c	2020-04-26 13:55:56.820584361 +0100
+@@ -93,6 +93,7 @@ struct Client {
  	int bw, oldbw;
  	unsigned int tags;
--	int isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen;
-+	int isfixed, iscentered, isfloating, isurgent, neverfocus, oldstate, isfullscreen;
+ 	int isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen;
++	char scratchkey;
  	Client *next;
  	Client *snext;
  	Monitor *mon;
-@@ -137,6 +137,7 @@ typedef struct {
- 	const char *instance;
- 	const char *title;
- 	unsigned int tags;
-+	int iscentered;
- 	int isfloating;
- 	int monitor;
- } Rule;
-@@ -285,6 +286,7 @@ applyrules(Client *c)
- 	XClassHint ch = { NULL, NULL };
- 
- 	/* rule matching */
-+	c->iscentered = 0;
- 	c->isfloating = 0;
- 	c->tags = 0;
- 	XGetClassHint(dpy, c->win, &ch);
-@@ -297,6 +299,7 @@ applyrules(Client *c)
- 		&& (!r->class || strstr(class, r->class))
- 		&& (!r->instance || strstr(instance, r->instance)))
- 		{
-+			c->iscentered = r->iscentered;
- 			c->isfloating = r->isfloating;
- 			c->tags |= r->tags;
- 			for (m = mons; m && m->num != r->monitor; m = m->next);
-@@ -1056,6 +1059,10 @@ manage(Window w, XWindowAttributes *wa)
- 	updatewindowtype(c);
- 	updatesizehints(c);
- 	updatewmhints(c);
-+	if (c->iscentered) {
-+		c->x = c->mon->mx + (c->mon->mw - WIDTH(c)) / 2;
-+		c->y = c->mon->my + (c->mon->mh - HEIGHT(c)) / 2;
-+	}
- 	XSelectInput(dpy, w, EnterWindowMask|FocusChangeMask|PropertyChangeMask|StructureNotifyMask);
- 	grabbuttons(c, 0);
- 	if (!c->isfloating)
-@@ -2009,8 +2016,10 @@ updatewindowtype(Client *c)
- 
- 	if (state == netatom[NetWMFullscreen])
- 		setfullscreen(c, 1);
--	if (wtype == netatom[NetWMWindowTypeDialog])
-+	if (wtype == netatom[NetWMWindowTypeDialog]) {
-+		c->iscentered = 1;
- 		c->isfloating = 1;
-+	}
- }
- 
- void
+@@ -207,11 +209,13 @@ static void seturgent(Client *c, int urg
+ static void showhide(Client *c);
+ static void sigchld(int unused);
+ static void spawn(const Arg *arg);
++static void spawnscratch(const Arg *arg);
+ static void tag(const Arg *arg);
+ static void tagmon(const Arg *arg);
+ static void tile(Monitor *);
+ static void togglebar(const Arg *arg);
+ static void togglefloating(const Arg *arg);
++static void togglescratch(const Arg *arg);
+ static void toggletag(const Arg *arg);
+ static void toggleview(const Arg *arg);
+ static void unfocus(Client *c, int setfocus);
