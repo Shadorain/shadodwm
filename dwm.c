@@ -749,8 +749,8 @@ void
 drawbar(Monitor *m)
 {
 	int x, w, tw = 0;
-	int boxs = drw->fonts->h / 7;
-	int boxw = drw->fonts->h / 11 + 0; // 6 + 2 --> 8 + 0
+	int boxs = drw->fonts->h / 11;
+	int boxw = drw->fonts->h / 11 + 0.5; // 6 + 2 --> 8 + 0
 	unsigned int i, occ = 0, urg = 0;
 	Client *c;
 
