@@ -69,8 +69,8 @@ static const char *termcmd[]  = { "kitty", NULL };
 static const char *scratchpadcmd[] = {"s", "kitty", "-T", "scratchpad", NULL}; 
 
 /* commands spawned when clicking statusbar, the mouse button pressed is exported as BUTTON */
-static char *statuscmds[] = { "music", "volume", "clock", "battery" };
-static char *statuscmd[] = { "/bin/sh", "-c", NULL, NULL };
+//static char *statuscmds[] = { "music", "volume", "clock", "battery" };
+//static char *statuscmd[] = { "/bin/sh", "-c", NULL, NULL };
 
 #include "movestack.c"
 static Key keys[] = {
@@ -125,9 +125,9 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText|ShiftMask,        0,              Button1,        spawn,          {.v = statuscmd } },
-	{ ClkStatusText|ShiftMask,        0,              Button2,        spawn,          {.v = statuscmd } },
-	{ ClkStatusText|ShiftMask,        0,              Button3,        spawn,          {.v = statuscmd } },
+	//{ ClkStatusText|ShiftMask,        0,              Button1,        spawn,          {.v = statuscmd } },
+	//{ ClkStatusText|ShiftMask,        0,              Button2,        spawn,          {.v = statuscmd } },
+	//{ ClkStatusText|ShiftMask,        0,              Button3,        spawn,          {.v = statuscmd } },
 	{ ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} },
 	{ ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} },
 	{ ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} },
