@@ -1,13 +1,13 @@
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
 	{"",	"music",	        0,	11},
-    //{"",    "mpdup"             0,  0},
-    //{"",	"memory",	        10,	14}, 
-    //{"",	"cpu",		        10,	18}, 
-    //{"",	"nettraf",	        1,	16}, 
 	{"",	"volume",	        0,	10},
 	{"",	"clock",	        60,	1},
 	{"",	"battery",	        5,	3},
+    //{"",  "mpdup"             0,  0},
+    //{"",	"memory",	        10,	14}, 
+    //{"",	"cpu",		        10,	18}, 
+    //{"",	"nettraf",	        1,	16}, 
 	//{"",	"internet",	        5,	4},
 };
 
