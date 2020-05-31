@@ -67,7 +67,7 @@ static const char *termcmd[]  = { "kitty", NULL };
 static const char *scratchpadcmd[] = {"s", "kitty", "-T", "scratchpad", NULL}; 
 
 /* commands spawned when clicking statusbar, the mouse button pressed is exported as BUTTON */
-static char *statuscmds[] = { "notify-send Mouse$BUTTON" };
+static char *statuscmds[] = { "music", "volume", "clock", "battery" };
 static char *statuscmd[] = { "/bin/sh", "-c", NULL, NULL };
 
 #include "movestack.c"

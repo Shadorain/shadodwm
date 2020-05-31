@@ -1,13 +1,14 @@
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
 	{"",	"music",	        0,	11},
-    {"",	"memory",	        10,	14}, 
-    {"",	"cpu",		    10,	18}, 
-    {"",	"nettraf",	    1,	16}, 
+    //{"",    "mpdup"             0,  0},
+    //{"",	"memory",	        10,	14}, 
+    //{"",	"cpu",		        10,	18}, 
+    //{"",	"nettraf",	        1,	16}, 
 	{"",	"volume",	        0,	10},
-	{"",	"battery",	    5,	3},
 	{"",	"clock",	        60,	1},
-	{"",	"internet",	    5,	4},
+	{"",	"battery",	        5,	3},
+	//{"",	"internet",	        5,	4},
 };
 
 //sets delimeter between status commands. NULL character ('\0') means no delimeter.
