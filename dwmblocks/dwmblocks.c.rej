@@ -1,0 +1,64 @@
+--- dwmblocks.c
++++ dwmblocks.c
+@@ -34,8 +33,6 @@ static int screen;
+ static Window root;
+ static char statusbar[LENGTH(blocks)][CMDLENGTH] = {0};
+ static char statusstr[2][256];
+-static char exportstring[CMDLENGTH + 16] = "export BUTTON=-;";
+-static int button = 0;
+ static int statusContinue = 1;
+ static void (*writestatus) () = setroot;
+ 
+@@ -50,34 +47,16 @@ void replace(char *str, char old, char new)
+ //opens process *cmd and stores output in *output
+ void getcmd(const Block *block, char *output)
+ {
+-	if (block->signal)
+-	{
+-		output[0] = block->signal;
+-		output++;
+-	}
+ 	strcpy(output, block->icon);
+-	char* cmd;
+-	FILE *cmdf;
+-	if (button)
+-	{
+-		cmd = strcat(exportstring, block->command);
+-		cmd[14] = '0' + button;
+-		button = 0;
+-		cmdf = popen(cmd,"r");
+-		cmd[16] = '\0';
+-	}
+-	else
+-	{
+-		cmd = block->command;
+-		cmdf = popen(cmd,"r");
+-	}
++	char *cmd = block->command;
++	FILE *cmdf = popen(cmd,"r");
+ 	if (!cmdf)
+ 		return;
+ 	char c;
+ 	int i = strlen(block->icon);
+ 	fgets(output+i, CMDLENGTH-i, cmdf);
+ 	i = strlen(output);
+-	if (delim != '\0' && i)
++	if (delim != '\0' && --i)
+ 		output[i++] = delim;
+ 	output[i++] = '\0';
+ 	pclose(cmdf);
+@@ -169,14 +144,6 @@ void sighandler(int signum)
+ 	getsigcmds(signum-SIGRTMIN);
+ 	writestatus();
+ }
+-
+-void buttonhandler(int sig, siginfo_t *si, void *ucontext)
+-{
+-	button = si->si_value.sival_int & 0xff;
+-	getsigcmds(si->si_value.sival_int >> 8);
+-	writestatus();
+-}
+-
+ #endif
+ 
+ void termhandler(int signum)
