@@ -2,7 +2,7 @@ static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
     //{"",    "mpdup",             0,  0},
 	{"",	"music",	        0,	11},
-	{"",	"clock",	        60,	1},
+	{"",	"clock",	        30,	1},
 	{"",	"volume",	        0,	10},
 	{"",	"battery",	        5,	3},
 };

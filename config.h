@@ -6,7 +6,7 @@ static const unsigned int gappx     = 4;        /* gaps between windows */
 static const unsigned int snap      = 4;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "'Hack Nerd Font':size=13" };
+static const char *fonts[]          = { "'FiraMono Nerd Font Mono':size=13" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#1b1b29";
 static const char col_gray2[]       = "#1b1b29";
@@ -41,9 +41,12 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "   ",      tile },    /* first entry is default */
-	{ "   ",      NULL },    /* no layout function means floating behavior */
-	{ "   ",      monocle },
+	//{ "﩯",      tile },    [> first entry is default <]
+	//{ " ",      NULL },    [> no layout function means floating behavior <]
+	//{ " ",      monocle },
+	{ " ",      tile },    /* first entry is default */
+	{ " ",      NULL },    /* no layout function means floating behavior */
+	{ " ",      monocle },
 };
 
 /* key definitions */
