@@ -1,23 +1,18 @@
 #!/bin/sh
 
 case $BLOCK_BUTTON in
-	3) notify-send "Battery module";;
-	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+	1) ~/.config/rofi/scripts/menu_powermenu.sh ;; # opens rofi powermenu
+	2) kitty nvim "$0" ;; # opens this file to be edited
+    3) kitty sudo powertop
 esac
 
-# acpi alternative
-# acpi | sed "s/[Dd]ischarging/ /;s/[Nn]ot charging/ /;s/[Cc]harging/ /;s/[Uu]nknown/ /;s/[Ff]ull/ /s/ \(remaining\|until charged\)//"; exit
 
-# Loop through all attached batteries.
 for battery in /sys/class/power_supply/BAT?
 do
-	# Get its remaining capacity and charge status.
 	capacity=$(cat "$battery"/capacity) || break
 	status=$(sed "s/[Dd]ischarging/ /;s/[Nn]ot charging/ /;s/[Cc]harging/ /;s/[Uu]nknown/ /;s/[Ff]ull/ /" "$battery"/status)
 
-	# If it is discharging and 25% or less, we will add a ❗ as a warning.
 	 [ "$capacity" -le 25 ] && [ "$status" = " " ] && status=" "
 
-	#printf "%s%s%s%% " "$status" "$capacity"
 	printf " %s " "$status"
 done
