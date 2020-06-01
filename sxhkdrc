@@ -155,11 +155,11 @@ XF86PowerOff
     /home/shadow/.config/rofi/scripts/menu_powermenu.sh
 # -- Audio Config -- # {{{
 XF86AudioLowerVolume
-	pulsemixer --change-volume -2
+	pulsemixer --change-volume -2; pkill -RTMIN+10 dwmblocks
 XF86AudioRaiseVolume
-	pulsemixer --change-volume +2
+	pulsemixer --change-volume +2; pkill -RTMIN+10 dwmblocks
 XF86AudioMute
-	pulsemixer --toggle-mute
+	pulsemixer --toggle-mute; pkill -RTMIN+10 dwmblocks
 # }}}
 # -- Brightness Config -- # {{{
 XF86MonBrightnessDown
