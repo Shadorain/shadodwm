@@ -11,8 +11,10 @@ static const char *fonts[]          = { "monospace:size=13" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#1b1b29";
 static const char col_gray2[]       = "#1b1b29";
-static const char col_gray3[]       = "#BFAAE3";
-static const char col_gray4[]       = "#BFAAE3";
+static const char col_gray3[]       = "#8897F4";
+static const char col_gray4[]       = "#8897F4";
+/* static const char col_gray3[]       = "#BFAAE3"; */
+/* static const char col_gray4[]       = "#BFAAE3"; */
 static const char col_cyan[]        = "#2F2F4a";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -94,7 +96,6 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[1]} },
     { MODKEY,                       XK_f,      fullscreen,     {0} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_f,      fullscreen,     {0} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ControlMask|ShiftMask, XK_f,      togglefloating, {0} },
 	{ MODKEY,                       XK_s,      togglesticky,   {0} },
@@ -128,14 +129,16 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
-  	{ ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} }, //
-	{ ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} }, //
-	{ ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} }, //
-	{ ClkStatusText,        0,              Button4,        sigdwmblocks,   {.i = 4} }, //
-	{ ClkStatusText,        0,              Button5,        sigdwmblocks,   {.i = 5} }, //
-	{ ClkStatusText,        ShiftMask,      Button1,        sigdwmblocks,   {.i = 6} }, //
-	{ ClkStatusText,        ShiftMask,      Button3,        spawn,          SHCMD("kitty nvim ~/dwm/dwmblocks/config.h") }, //
+	/* { ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } }, */
+  	{ ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} }, // Left Click
+	{ ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} }, // Middle Click
+	{ ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} }, // Right Click
+	{ ClkStatusText,        0,              Button4,        sigdwmblocks,   {.i = 4} }, // Scroll Down
+	{ ClkStatusText,        0,              Button5,        sigdwmblocks,   {.i = 5} }, // Scroll Up
+	{ ClkStatusText,        ShiftMask,      Button4,        sigdwmblocks,   {.i = 8} }, // Shift + Scroll Down
+	{ ClkStatusText,        ShiftMask,      Button5,        sigdwmblocks,   {.i = 9} }, // Shift + Scroll Up
+	{ ClkStatusText,        ShiftMask,      Button1,        sigdwmblocks,   {.i = 6} }, // Shift + Click
+	{ ClkStatusText,        ShiftMask,      Button3,        spawn,          SHCMD("kitty nvim ~/dwm/dwmblocks/config.h") }, // Shift + Right Click
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },

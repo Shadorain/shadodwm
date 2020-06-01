@@ -1,0 +1,48 @@
+#!/bin/sh
+# ========================================================== #
+#    _________.__                .___                .__   
+#   /   _____/|  |__ _____     __| _/_______  ______ |  |  
+#   \_____  \ |  |  \\__  \   / __ |/  _ \  \/ /  _ \|  |  
+#   /        \|   Y  \/ __ \_/ /_/ (  <_> )   (  <_> )  |__
+#  /_______  /|___|  (____  /\____ |\____/ \_/ \____/|____/
+#          \/      \/     \/      \/                       
+# ========================================================== #
+# Set icons here
+HIGH="墳"
+MEDIUM="奔"
+LOW="奄"
+MUTE="婢"
+
+case $BLOCK_BUTTON in
+    # Click: Toggles mute
+	1) pulsemixer --toggle-mute; pkill -RTMIN+10 dwmblocks ;;
+    # Middle Click: Opens up pulsemixer
+	2) setsid -f "$TERMINAL" -e pulsemixer ;;
+    # Right Click: Opens up my rofi volume menu
+	3) ~/.config/rofi/scripts/volume.sh ;;
+    # Scroll Up: Increase volume
+	4) pulsemixer --change-volume +2; pkill -RTMIN+10 dwmblocks ;;
+    # Scroll Down: Decrease volume
+	5) pulsemixer --change-volume -2; pkill -RTMIN+10 dwmblocks ;;
+    # Shift Click: Open this file
+	6) "$TERMINAL" nvim "$0" ;;
+esac
+
+volstat=$(pactl list sinks)
+# Checks if muted
+echo "$volstat" | grep -q "Mute: yes" && printf "$MUTE" && exit
+# Gets current volume
+vol="$(echo "$volstat" | grep '[0-9]\+%' | sed "s,.* \([0-9]\+\)%.*,\1,;1q")"
+
+# Conditionals for volume level
+if [ "$vol" -gt "70" ]; then
+	icon="$HIGH"
+elif [ "$vol" -lt "30" ]; then
+	icon="$LOW"
+else
+	icon="$MEDIUM"
+fi
+
+# Output
+printf "%s" "$icon" # Change to "$vol" to display volume number
+# ============================================================== #

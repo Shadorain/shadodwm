@@ -1,0 +1,31 @@
+#!/bin/sh
+# ========================================================================= #
+#    _________.__                .___                          .__        
+#   /   _____/|  |__ _____     __| _/____   _____  __ __  _____|__| ____  
+#   \_____  \ |  |  \\__  \   / __ |/  _ \ /     \|  |  \/  ___/  |/ ___\ 
+#   /        \|   Y  \/ __ \_/ /_/ (  <_> )  Y Y  \  |  /\___ \|  \  \___ 
+#  /_______  /|___|  (____  /\____ |\____/|__|_|  /____//____  >__|\___  >
+#          \/      \/     \/      \/            \/           \/        \/ 
+# ========================================================================= #
+# You can remove music icon in front of song in dwmblocks/config.h
+# Set Pause icon here
+PAUSE=" "
+filter() { mpc | sed "/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*/$PAUSE/g;/\\[playing\\].*/d" | paste -sd ' ';}
+pidof -x mpdup >/dev/null 2>&1 || mpdup &
+
+case $BLOCK_BUTTON in
+    # Click: Toggles Play/Pause
+	1) mpc toggle | filter ;;
+    # Middle Click: Opens ncmpcpp
+	2) mpc status | filter ; setsid -f "$TERMINAL" ncmpcpp ;;
+    # Right Click: Opens up my rofi mpd menu
+	3) mpc status | filter ; ~/.config/rofi/scripts/mpd.sh ;;
+    # Shift Scroll Down: Previous Track
+	8) mpc prev   | filter ;;
+    # Shift Scroll Up: Next Track
+	9) mpc next   | filter ;;
+    # Shift Click: Open this file
+	6) mpc status | filter ; "$TERMINAL" nvim "$0" ;;
+	*) mpc status | filter ;;
+esac
+# ========================================================================= #

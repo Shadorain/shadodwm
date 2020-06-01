@@ -1,0 +1,25 @@
+#!/bin/sh
+# ================================================================ #
+#   _________.__                .___      __  .__                
+#  /   _____/|  |__ _____     __| _/_____/  |_|__| _____   ____  
+#  \_____  \ |  |  \\__  \   / __ |/  _ \   __\  |/     \_/ __ \ 
+#  /        \|   Y  \/ __ \_/ /_/ (  <_> )  | |  |  Y Y  \  ___/ 
+# /_______  /|___|  (____  /\____ |\____/|__| |__|__|_|  /\___  >
+#         \/      \/     \/      \/                    \/     \/ 
+# ================================================================ #
+
+case $BLOCK_BUTTON in
+    # Click: Shows notif of first the month calendar and what day it is
+    # The second notif displays all saved calcurse appointments for the next 2 days
+	1) notify-send "This Month" "$(cal --color=always | sed "s/..7m/<b><span color=\"purple\">/;s/..27m/<\/span><\/b>/")" && notify-send "Appointments" "$(calcurse -D ~/.config/calcurse -d3)" ;;
+    # Middle Click: Opens up calcurse app in a new terminal
+	2) setsid -f "$TERMINAL" calcurse -D ~/.config/calcurse ;;
+    # Right Click: Opens up my rofi time menu
+	3) ~/.config/rofi/scripts/time.sh ;;
+    # Shift Click: Opens vim session of this file
+	6) "$TERMINAL" nvim "$0" ;;
+esac
+
+# Output
+date "+%I:%M%p"
+# ================================================================ #

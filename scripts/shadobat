@@ -1,0 +1,39 @@
+#!/bin/sh
+# =========================================================== #
+#   _________.__                .___    ___.           __   
+#  /   _____/|  |__ _____     __| _/____\_ |__ _____ _/  |_ 
+#  \_____  \ |  |  \\__  \   / __ |/  _ \| __ \\__  \\   __\
+#  /        \|   Y  \/ __ \_/ /_/ (  <_> ) \_\ \/ __ \|  |  
+# /_______  /|___|  (____  /\____ |\____/|___  (____  /__|  
+#         \/      \/     \/      \/          \/     \/      
+# =========================================================== #
+# Set icons here
+FULL=" "
+DISCHARGING=" "
+CHARGING=" "
+UNKNOWN=" "
+WARNING=" "
+
+case $BLOCK_BUTTON in
+    # Click: Opens up my rofi battery menu
+	1) ~/.config/rofi/scripts/battery.sh ;;
+    # Middle Click: Opens a powertop session
+    2) "$TERMINAL" sudo powertop ;;
+    # Right Click: Opens up my rofi power menu
+	3) ~/.config/rofi/scripts/menu_powermenu.sh ;;
+    # Shift Click: Opens this file to be edited
+	6) "$TERMINAL" nvim "$0" ;;
+esac
+
+# Checks for batteries in the system folder
+for battery in /sys/class/power_supply/BAT?
+do
+	capacity=$(cat "$battery"/capacity) || break
+	status=$(sed "s/[Dd]ischarging/$DISCHARGING/;s/[Nn]ot charging/$DISCHARGING/;s/[Cc]harging/$CHARGING/;s/[Uu]nknown/$UNKNOWN/;s/[Ff]ull/$FULL/" "$battery"/status)
+    # Checks if battery is under 25% and shows warning
+	[ "$capacity" -le 25 ] && [ "$status" = "$DISCHARGING" ] && status="$WARNING"
+
+    # Output
+	printf " %s " "$status"
+done
+# =========================================================== #
