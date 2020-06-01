@@ -19,5 +19,5 @@ do
 	 [ "$capacity" -le 25 ] && [ "$status" = " " ] && status=" "
 
 	#printf "%s%s%s%% " "$status" "$capacity"
-	printf " %s   " "$status"
+	printf " %s " "$status"
 done

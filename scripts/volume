@@ -7,15 +7,14 @@ echo "$volstat" | grep -q "Mute: yes" && printf " 婢" && exit
 vol="$(echo "$volstat" | grep '[0-9]\+%' | sed "s,.* \([0-9]\+\)%.*,\1,;1q")"
 
 if [ "$vol" -gt "70" ]; then
-	icon=" 墳"
+	icon="墳"
 elif [ "$vol" -lt "30" ]; then
-	icon=" 奄"
+	icon="奄"
 else
-	icon=" 奔"
+	icon="奔"
 fi
 
-echo " $icon"
-#printf "%s" "$icon" # "$vol"
+printf "%s" "$icon" # "$vol"
 
 case $BLOCK_BUTTON in
 	1) setsid -f "$TERMINAL" -e pulsemixer ;;
