@@ -19,20 +19,24 @@ static const char none[]             = "#000000"; // Placeholder for no color
 static const char dark_background[]  = "#1b1b29";
 static const char dark_purple[]      = "#4b26ab";
 static const char dark_gray[]        = "#2a1f47";
+static const char med_gray[]         = "#2C2A4A";
+static const char med_purple[]       = "#907AD6";
+static const char med_blue[]         = "#14213D";
 static const char light_pink[]       = "#ff79c6";
-static const char light_lavendar[]   = "#bd93f9";
 static const char light_foreground[] = "#BFAAE3";
+static const char pink_foreground[]  = "#8F3985";
 static const char light_gray[]       = "#2F2F4a";
+static const char light_purple2[]    = "#A882DD";
 static const char light_purple[]     = "#6546e0";
 static const char light_purpleblue[] = "#8897F4";
 static const char *colors[][3]       = {
 	/* scheme               fg            bg          border   */
 	[SchemeNorm]     = { light_foreground, dark_background, light_gray        },
 	[SchemeSel]      = { light_foreground, light_gray,      light_purpleblue  },
-	[SchemeStatus]   = { light_purple,     dark_background, none              }, // Statusbar right
+	[SchemeStatus]   = { light_purple2,    dark_background, none              }, // Statusbar right
 	[SchemeTagsSel]  = { light_pink,       light_gray,      none              }, // Tagbar left selected
     [SchemeTagsNorm] = { light_foreground, dark_background, none              }, // Tagbar left unselected
-    [SchemeInfoSel]  = { light_foreground, light_purple,    none              }, // infobar middle  selected
+    [SchemeInfoSel]  = { light_foreground, med_gray,        none              }, // infobar middle  selected
     [SchemeInfoNorm] = { light_foreground, dark_background, none              }, // infobar middle  unselected
 };
 
