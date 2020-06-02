@@ -12,7 +12,7 @@ static const unsigned int gappx      = 4; // Gap size in pixels
 static const unsigned int snap       = 4; // Distance for window to snap
 static const int showbar             = 1; // 1:show, 0:no bar
 static const int topbar              = 1; // 0 for bottom, 1 for top
-static const char *fonts[]           = { "Agave:size=15" }; // Mainly for the bar
+static const char *fonts[]           = { "Agave:size=15", "monospace:size=13" }; // Mainly for the bar
 static const char dmenufont[]        = { "monospace:size=10" }; // Dmenu
 // Color select zone
 static const char none[]             = "#000000"; // Placeholder for no color
@@ -20,7 +20,7 @@ static const char dark_background[]  = "#1b1b29";
 static const char dark_purple[]      = "#4b26ab";
 static const char dark_gray[]        = "#2a1f47";
 static const char med_gray[]         = "#2C2A4A";
-static const char med_purple[]       = "#907AD6";
+static const char med_purple[]       = "#505ede";
 static const char med_blue[]         = "#14213D";
 static const char light_pink[]       = "#ff79c6";
 static const char light_foreground[] = "#BFAAE3";
