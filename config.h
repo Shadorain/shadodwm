@@ -12,7 +12,7 @@ static const unsigned int gappx      = 4; // Gap size in pixels
 static const unsigned int snap       = 4; // Distance for window to snap
 static const int showbar             = 1; // 1:show, 0:no bar
 static const int topbar              = 1; // 0 for bottom, 1 for top
-static const char *fonts[]           = { "League Mono Thin:style=Thin,Regular:size=13" }; // Mainly for the bar
+static const char *fonts[]           = { "Agave:size=15" }; // Mainly for the bar
 static const char dmenufont[]        = { "monospace:size=10" }; // Dmenu
 // Color select zone
 static const char none[]             = "#000000"; // Placeholder for no color
@@ -29,7 +29,7 @@ static const char *colors[][3]       = {
 	/* scheme               fg            bg          border   */
 	[SchemeNorm]     = { light_foreground, dark_background, light_gray        },
 	[SchemeSel]      = { light_foreground, light_gray,      light_purpleblue  },
-	[SchemeStatus]   = { light_purpleblue, dark_background, none              }, // Statusbar right
+	[SchemeStatus]   = { light_purple,     dark_background, none              }, // Statusbar right
 	[SchemeTagsSel]  = { light_pink,       light_gray,      none              }, // Tagbar left selected
     [SchemeTagsNorm] = { light_foreground, dark_background, none              }, // Tagbar left unselected
     [SchemeInfoSel]  = { light_foreground, light_purple,    none              }, // infobar middle  selected
