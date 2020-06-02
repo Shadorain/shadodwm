@@ -20,7 +20,7 @@ static const char dark_background[]  = "#1b1b29";
 static const char dark_purple[]      = "#4b26ab";
 static const char dark_gray[]        = "#2a1f47";
 static const char med_gray[]         = "#2C2A4A";
-static const char med_purple[]       = "#505ede";
+static const char med_purple[]       = "#7C72A0";
 static const char med_blue[]         = "#14213D";
 static const char light_pink[]       = "#ff79c6";
 static const char light_foreground[] = "#BFAAE3";
@@ -36,7 +36,7 @@ static const char *colors[][3]       = {
 	[SchemeStatus]   = { light_purple2,    dark_background, none              }, // Statusbar right
 	[SchemeTagsSel]  = { light_pink,       light_gray,      none              }, // Tagbar left selected
     [SchemeTagsNorm] = { light_foreground, dark_background, none              }, // Tagbar left unselected
-    [SchemeInfoSel]  = { light_foreground, med_gray,        none              }, // infobar middle  selected
+    [SchemeInfoSel]  = { light_foreground, light_gray,      none              }, // infobar middle  selected
     [SchemeInfoNorm] = { light_foreground, dark_background, none              }, // infobar middle  unselected
 };
 
