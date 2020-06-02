@@ -8,3 +8,4 @@ picom --experimental-backends &
 feh --bg-scale --no-fehbg ~/Pictures/Backgrounds/cherry.jpg &
 flameshot &
 ~/dwm/dwmblocks/dwmblocks &
+sleep 1; killall dwmblocks; ~/dwm/dwmblocks/dwmblocks &
