@@ -12,11 +12,15 @@ static const unsigned int gappx      = 4; // Gap size in pixels
 static const unsigned int snap       = 4; // Distance for window to snap
 static const int showbar             = 1; // 1:show, 0:no bar
 static const int topbar              = 1; // 0 for bottom, 1 for top
-static const char *fonts[]           = { "monospace:size=13" }; // Mainly for the bar
+static const char *fonts[]           = { "League Mono Thin:style=Thin,Regular:size=13" }; // Mainly for the bar
 static const char dmenufont[]        = { "monospace:size=10" }; // Dmenu
 // Color select zone
 static const char none[]             = "#000000"; // Placeholder for no color
 static const char dark_background[]  = "#1b1b29";
+static const char dark_purple[]      = "#4b26ab";
+static const char dark_gray[]        = "#2a1f47";
+static const char light_pink[]       = "#ff79c6";
+static const char light_lavendar[]   = "#bd93f9";
 static const char light_foreground[] = "#BFAAE3";
 static const char light_gray[]       = "#2F2F4a";
 static const char light_purple[]     = "#6546e0";
@@ -26,7 +30,7 @@ static const char *colors[][3]       = {
 	[SchemeNorm]     = { light_foreground, dark_background, light_gray        },
 	[SchemeSel]      = { light_foreground, light_gray,      light_purpleblue  },
 	[SchemeStatus]   = { light_purpleblue, dark_background, none              }, // Statusbar right
-	[SchemeTagsSel]  = { light_purple,     light_gray,      none              }, // Tagbar left selected
+	[SchemeTagsSel]  = { light_pink,       light_gray,      none              }, // Tagbar left selected
     [SchemeTagsNorm] = { light_foreground, dark_background, none              }, // Tagbar left unselected
     [SchemeInfoSel]  = { light_foreground, light_purple,    none              }, // infobar middle  selected
     [SchemeInfoNorm] = { light_foreground, dark_background, none              }, // infobar middle  unselected
@@ -40,6 +44,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     iscentered   isfloating   monitor  scratchkey */
     { "kitty",    NULL,       NULL,       0,            1,           0,           -1,       0 },
     { NULL,       NULL,   "scratchpad",   0,            1,           1,           -1,      's' },
+    { NULL,       NULL,   "scratchpad2",  0,            0,           1,           -1,      'v' },
 };
 
 static const float mfact     = 0.50; // Size of master area
@@ -71,7 +76,9 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "kitty", NULL }; // Set your preferred terminal here
 
 // Named scratchpad commands
-static const char *scratchpadcmd[] = {"s", "kitty", "-T", "scratchpad", NULL}; 
+//                     cmdname         key  program settitle  title         command 
+static const char *scratchpadcmd[]  = {"s", "kitty", "-T", "scratchpad",     NULL  }; 
+static const char *scratchpadcmd2[] = {"v", "kitty", "-T", "scratchpad2", "vifmrun"}; 
 
 #include "selfrestart.c"
 #include "movestack.c"
@@ -80,11 +87,12 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } }, // Dmenu
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },  // Open terminal
-	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } }, // Open scratchpad 's'
+	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd  } }, // Open scratchpad 's'
+	{ MODKEY|ShiftMask,             XK_grave,  togglescratch,  {.v = scratchpadcmd2 } }, // Open scratchpad 'v'
 	{ MODKEY,                       XK_b,      togglebar,      {0} }, // Toggles statusbar
-	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } }, // Rotates windows around the stack (Up)
+	{ MODKEY,                       XK_r,      rotatestack,    {.i = +1 } }, // Rotates windows around the stack (Up)
 	{ MODKEY|ShiftMask,             XK_r,      rotatestack,    {.i = -1 } }, // Rotates windows around the stack (Down)
-	{ MODKEY,                       XK_r,      focusstack,     {.i = +1 } }, // Shift window focus up stack
+	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } }, // Shift window focus up stack
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } }, // Shift window focus down stack
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } }, // Increase count of master area
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } }, // Decrease count of master area
@@ -92,14 +100,12 @@ static Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} }, // Set master size left
 	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } }, // Moves focused window up stack
 	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } }, // Moves focused window down stack
-	/* { MODKEY|ShiftMask,             XK_Return, zoom,           {0} }, */ // Not entirely sure yet
 	{ MODKEY,                       XK_Tab,    view,           {0} }, // Swaps to last focused tag
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} }, // Kills focused window
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, // Sets tag in tiled mode
 	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[1]} }, // Sets tag in floating mode
     { MODKEY,                       XK_f,      fullscreen,     {0} }, // Sets current window as fullscreen
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} }, // Sets tag in monocle mode
-	/* { MODKEY,                       XK_space,  setlayout,      {0} }, // Will be removed */
 	{ MODKEY|ControlMask|ShiftMask, XK_f,      togglefloating, {0} }, // Toggles floating on focused window
 	{ MODKEY,                       XK_s,      togglesticky,   {0} }, // Toggles sticky on focued window
    	{ MODKEY,		            	XK_Insert,	spawn,	       SHCMD("notify-send \" : \" \"$(xclip -o -selection clipboard)\"") }, // Prints clipboard to a notification
