@@ -10,24 +10,44 @@
 # You can remove music icon in front of song in dwmblocks/config.h
 # Set Pause icon here
 PAUSE=" "
-filter() { mpc | sed "/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*/$PAUSE/g;/\\[playing\\].*/d" | paste -sd ' ';}
+# Set padding (x:while playing, y:while paused)
+x="   "
+y="  "
+
+# Gets current song
+current=$(mpc current)
+# Finds song state
+state=$(mpc status | awk '{print $1}' | awk 'NR==2')
+# Function to check state of song
+getSong()
+{
+    if [ $state = "[playing]" ]  # If playing
+    then 
+        printf "   %s%s\n" "$current" "$x"
+    elif [ $state = "[paused]" ]  # If paused
+    then
+        printf "   %s %s%s\n" "$current" "$PAUSE" "$y"
+    else
+        printf "  Stopped%s\n" "$x"
+    fi
+}
 pidof -x mpdup >/dev/null 2>&1 || mpdup &
 
 case $BLOCK_BUTTON in
     # Click: Toggles Play/Pause
-	1) mpc toggle | filter ;;
+	1) mpc toggle | getSong ;;
     # Middle Click: Opens ncmpcpp
-	2) mpc status | filter ; setsid -f "$TERMINAL" ncmpcpp ;;
+	2) mpc status | getSong ; setsid -f "$TERMINAL" ncmpcpp ;;
     # Right Click: Opens up my rofi mpd menu
-	3) mpc status | filter ; ~/.config/rofi/scripts/mpd.sh ;;
+	3) mpc status | getSong ; ~/.config/rofi/scripts/mpd.sh ;;
     # Shift Scroll Down: Previous Track
-	8) mpc prev   | filter ;;
+	8) mpc prev   | getSong ;;
     # Shift Scroll Up: Next Track
-	9) mpc next   | filter ;;
+	9) mpc next   | getSong ;;
     # Alt Click: Opens scratchpad for song bar!!!!!!
     6) xdotool key alt+ctrl+m ;;
     # Shift Click: Open this file
-	10) mpc status | filter ; "$TERMINAL" nvim "$0" ;;
-	*) mpc status | filter ;;
+	10) mpc status | getSong ; "$TERMINAL" nvim "$0" ;;
+	*) mpc status | getSong ;;
 esac
 # ========================================================================= #

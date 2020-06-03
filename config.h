@@ -50,6 +50,7 @@ static const Rule rules[] = {
     { "kitty",    NULL,       NULL,       0,            1,           0,           -1,       0 },
     { NULL,       NULL,   "scratchpad",   0,            1,           1,           -1,      's' },
     { NULL,       NULL,   "scratchpad2",  0,            0,           1,           -1,      'v' },
+    { NULL,       NULL,   "scratchpad3",  0,            0,           1,           -1,      'm' },
 };
 
 static const float mfact     = 0.50; // Size of master area
