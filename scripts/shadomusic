@@ -8,7 +8,8 @@
 #          \/      \/     \/      \/            \/           \/        \/ 
 # ========================================================================= #
 # You can remove music icon in front of song in dwmblocks/config.h
-# Set Pause icon here
+# Set icons here
+MUSIC=" "
 PAUSE=" "
 # Set padding (x:while playing, y:while paused)
 x="   "
@@ -23,12 +24,12 @@ getSong()
 {
     if [ $state = "[playing]" ]  # If playing
     then 
-        printf "   %s%s\n" "$current" "$x"
+        printf "   %s%s%s\n" "$MUSIC" "$current" "$x"
     elif [ $state = "[paused]" ]  # If paused
     then
-        printf "   %s %s%s\n" "$current" "$PAUSE" "$y"
+        printf "   %s%s %s%s\n" "$MUSIC" "$current" "$PAUSE" "$y"
     else
-        printf "  Stopped%s\n" "$x"
+        printf "  %sStopped%s\n" "$MUSIC" "$x"
     fi
 }
 pidof -x mpdup >/dev/null 2>&1 || mpdup &
