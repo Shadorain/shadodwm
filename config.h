@@ -21,6 +21,7 @@ static const char dark_purple[]      = "#4b26ab";
 static const char dark_gray[]        = "#2a1f47";
 static const char med_gray[]         = "#2C2A4A";
 static const char med_purple[]       = "#7C72A0";
+static const char light_purple3[]    = "#BC96E6";
 static const char med_blue[]         = "#14213D";
 static const char light_pink[]       = "#ff79c6";
 static const char light_foreground[] = "#BFAAE3";
@@ -33,10 +34,10 @@ static const char *colors[][3]       = {
 	/* scheme               fg            bg          border   */
 	[SchemeNorm]     = { light_foreground, dark_background, light_gray        },
 	[SchemeSel]      = { light_foreground, light_gray,      light_purpleblue  },
-	[SchemeStatus]   = { light_purple2,    dark_background, none              }, // Statusbar right
+	[SchemeStatus]   = { light_purple3,    dark_background, none              }, // Statusbar right
 	[SchemeTagsSel]  = { light_pink,       light_gray,      none              }, // Tagbar left selected
-    [SchemeTagsNorm] = { light_foreground, dark_background, none              }, // Tagbar left unselected
-    [SchemeInfoSel]  = { light_foreground, light_gray,      none              }, // infobar middle  selected
+    [SchemeTagsNorm] = { light_purple3,    dark_background, none              }, // Tagbar left unselected
+    [SchemeInfoSel]  = { light_pink,       light_gray,      none              }, // infobar middle  selected
     [SchemeInfoNorm] = { light_foreground, dark_background, none              }, // infobar middle  unselected
 };
 
@@ -83,6 +84,7 @@ static const char *termcmd[]  = { "kitty", NULL }; // Set your preferred termina
 //                     cmdname         key  program settitle  title         command 
 static const char *scratchpadcmd[]  = {"s", "kitty", "-T", "scratchpad",     NULL  }; 
 static const char *scratchpadcmd2[] = {"v", "kitty", "-T", "scratchpad2", "vifmrun"}; 
+static const char *scratchpadcmd3[] = {"m", "kitty", "-T", "scratchpad3", "ncmpcpp"}; 
 
 #include "selfrestart.c"
 #include "movestack.c"
@@ -93,6 +95,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },  // Open terminal
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd  } }, // Open scratchpad 's'
 	{ MODKEY|ShiftMask,             XK_grave,  togglescratch,  {.v = scratchpadcmd2 } }, // Open scratchpad 'v'
+	{ MODKEY|ControlMask,           XK_m,      togglescratch,  {.v = scratchpadcmd3 } }, // Open scratchpad 'm'
 	{ MODKEY,                       XK_b,      togglebar,      {0} }, // Toggles statusbar
 	{ MODKEY,                       XK_r,      rotatestack,    {.i = +1 } }, // Rotates windows around the stack (Up)
 	{ MODKEY|ShiftMask,             XK_r,      rotatestack,    {.i = -1 } }, // Rotates windows around the stack (Down)
@@ -139,7 +142,6 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} }, 
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	/* { ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } }, */
   	{ ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} }, // Left Click
 	{ ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} }, // Middle Click
 	{ ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} }, // Right Click
@@ -147,6 +149,7 @@ static Button buttons[] = {
 	{ ClkStatusText,        0,              Button5,        sigdwmblocks,   {.i = 5} }, // Scroll Up
 	{ ClkStatusText,        ShiftMask,      Button4,        sigdwmblocks,   {.i = 8} }, // Shift + Scroll Down
 	{ ClkStatusText,        ShiftMask,      Button5,        sigdwmblocks,   {.i = 9} }, // Shift + Scroll Up
+	{ ClkStatusText,        ShiftMask,      Button2,        sigdwmblocks,   {.i = 10} }, // Shift + Middle Click
 	{ ClkStatusText,        ShiftMask,      Button1,        sigdwmblocks,   {.i = 6} }, // Shift + Click
 	{ ClkStatusText,        ShiftMask,      Button3,        spawn,          SHCMD("kitty nvim ~/dwm/dwmblocks/config.h") }, // Shift + Right Click
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },

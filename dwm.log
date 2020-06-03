@@ -1,0 +1,223 @@
+sh: ./autostart_blocking.sh: No such file or directory
+picom: no process found
+[ 06/02/2020 18:26:23.019 parse_config_libconfig WARN ] max-brightness requires use-damage = false. Falling back to 1.0
+[ 06/02/2020 18:26:23.019 atom_getter DEBUG ] Atom _NET_WM_WINDOW_OPACITY is 356
+[ 06/02/2020 18:26:23.019 atom_getter DEBUG ] Atom _NET_FRAME_EXTENTS is 370
+[ 06/02/2020 18:26:23.019 atom_getter DEBUG ] Atom WM_STATE is 361
+[ 06/02/2020 18:26:23.020 atom_getter DEBUG ] Atom _NET_WM_NAME is 349
+[ 06/02/2020 18:26:23.020 atom_getter DEBUG ] Atom _NET_WM_PID is 371
+[ 06/02/2020 18:26:23.020 atom_getter DEBUG ] Atom WM_NAME is 39
+[ 06/02/2020 18:26:23.020 atom_getter DEBUG ] Atom WM_CLASS is 67
+[ 06/02/2020 18:26:23.020 atom_getter DEBUG ] Atom WM_TRANSIENT_FOR is 68
+[ 06/02/2020 18:26:23.020 atom_getter DEBUG ] Atom WM_WINDOW_ROLE is 372
+[ 06/02/2020 18:26:23.020 atom_getter DEBUG ] Atom WM_CLIENT_LEADER is 373
+[ 06/02/2020 18:26:23.020 atom_getter DEBUG ] Atom _NET_ACTIVE_WINDOW is 357
+[ 06/02/2020 18:26:23.020 atom_getter DEBUG ] Atom _COMPTON_SHADOW is 374
+[ 06/02/2020 18:26:23.020 atom_getter DEBUG ] Atom _NET_WM_WINDOW_TYPE is 351
+[ 06/02/2020 18:26:23.020 atom_getter DEBUG ] Atom _NET_WM_WINDOW_TYPE_DESKTOP is 375
+[ 06/02/2020 18:26:23.020 atom_getter DEBUG ] Atom _NET_WM_WINDOW_TYPE_DOCK is 376
+[ 06/02/2020 18:26:23.020 atom_getter DEBUG ] Atom _NET_WM_WINDOW_TYPE_TOOLBAR is 377
+[ 06/02/2020 18:26:23.020 atom_getter DEBUG ] Atom _NET_WM_WINDOW_TYPE_MENU is 378
+[ 06/02/2020 18:26:23.020 atom_getter DEBUG ] Atom _NET_WM_WINDOW_TYPE_UTILITY is 353
+[ 06/02/2020 18:26:23.020 atom_getter DEBUG ] Atom _NET_WM_WINDOW_TYPE_SPLASH is 379
+[ 06/02/2020 18:26:23.020 atom_getter DEBUG ] Atom _NET_WM_WINDOW_TYPE_DIALOG is 366
+[ 06/02/2020 18:26:23.020 atom_getter DEBUG ] Atom _NET_WM_WINDOW_TYPE_NORMAL is 380
+[ 06/02/2020 18:26:23.020 atom_getter DEBUG ] Atom _NET_WM_WINDOW_TYPE_DROPDOWN_MENU is 381
+[ 06/02/2020 18:26:23.020 atom_getter DEBUG ] Atom _NET_WM_WINDOW_TYPE_POPUP_MENU is 382
+[ 06/02/2020 18:26:23.020 atom_getter DEBUG ] Atom _NET_WM_WINDOW_TYPE_TOOLTIP is 383
+[ 06/02/2020 18:26:23.020 atom_getter DEBUG ] Atom _NET_WM_WINDOW_TYPE_NOTIFICATION is 352
+[ 06/02/2020 18:26:23.020 atom_getter DEBUG ] Atom _NET_WM_WINDOW_TYPE_COMBO is 384
+[ 06/02/2020 18:26:23.020 atom_getter DEBUG ] Atom _NET_WM_WINDOW_TYPE_DND is 385
+[ 06/02/2020 18:26:23.020 atom_getter DEBUG ] Atom _NET_WM_STATE is 354
+[ 06/02/2020 18:26:23.020 atom_getter DEBUG ] Atom _NET_WM_STATE_FULLSCREEN is 365
+[ 06/02/2020 18:26:23.021 atom_getter DEBUG ] Atom _NET_WM_BYPASS_COMPOSITOR is 386
+[ 06/02/2020 18:26:23.022 atom_getter DEBUG ] Atom COMPTON_VERSION is 388
+[ 06/02/2020 18:26:23.022 atom_getter DEBUG ] Atom _NET_WM_CM_S0 is 389
+[ 06/02/2020 18:26:23.039 init_overlay DEBUG ] overlay = 0x0000027d
+[ 06/02/2020 18:26:23.040 file_watch_init DEBUG ] Starting watching for file changes
+[ 06/02/2020 18:26:23.040 file_watch_add DEBUG ] Adding "/home/shadow/.config/picom.conX connection to :0 broken (explicit kill or server shutdown).
+dding window 0x00400003
+[ 06/02/2020 18:26:23.042 add_win DEBUG ] Adding window 0x01200001
+[ 06/02/2020 18:26:23.042 add_win DEBUG ] Adding window 0x01200003
+[ 06/02/2020 18:26:23.042 add_win DEBUG ] Adding window 0x01400007
+[ 06/02/2020 18:26:23.042 add_win DEBUG ] Adding window 0x01200007
+[ 06/02/2020 18:26:23.042 add_win DEBUG ] Adding window 0x0120000c
+[ 06/02/2020 18:26:23.042 add_win DEBUG ] Adding window 0x0140001b
+[ 06/02/2020 18:26:23.042 add_win DEBUG ] Adding window 0x0140000c
+[ 06/02/2020 18:26:23.042 add_win DEBUG ] Adding window 0x0120185c
+[ 06/02/2020 18:26:23.042 add_win DEBUG ] Adding window 0x00400001
+[ 06/02/2020 18:26:23.042 add_win DEBUG ] Adding window 0x01600004
+[ 06/02/2020 18:26:23.042 add_win DEBUG ] Adding window 0x00800004
+[ 06/02/2020 18:26:23.042 add_win DEBUG ] Adding window 0x00a00001
+[ 06/02/2020 18:26:23.042 add_win DEBUG ] Adding window 0x00a0000b
+[ 06/02/2020 18:26:23.042 add_win DEBUG ] Adding window 0x0060000d
+[ 06/02/2020 18:26:23.042 add_win DEBUG ] Adding window 0x0060000e
+[ 06/02/2020 18:26:23.042 add_win DEBUG ] Adding window 0x00600020
+[ 06/02/2020 18:26:23.042 add_win DEBUG ] Adding window 0x01000002
+[ 06/02/2020 18:26:23.042 session_init DEBUG ] Initial stack:
+[ 06/02/2020 18:26:23.042 session_init DEBUG ] 0x01000002
+[ 06/02/2020 18:26:23.042 session_init DEBUG ] 0x00600020
+[ 06/02/2020 18:26:23.042 session_init DEBUG ] 0x0060000e
+[ 06/02/2020 18:26:23.042 session_init DEBUG ] 0x0060000d
+[ 06/02/2020 18:26:23.042 session_init DEBUG ] 0x00a0000b
+[ 06/02/2020 18:26:23.042 session_init DEBUG ] 0x00a00001
+[ 06/02/2020 18:26:23.042 session_init DEBUG ] 0x00800004
+[ 06/02/2020 18:26:23.042 session_init DEBUG ] 0x01600004
+[ 06/02/2020 18:26:23.042 session_init DEBUG ] 0x00400001
+[ 06/02/2020 18:26:23.042 session_init DEBUG ] 0x0120185c
+[ 06/02/2020 18:26:23.042 session_init DEBUG ] 0x0140000c
+[ 06/02/2020 18:26:23.042 session_init DEBUG ] 0x0140001b
+[ 06/02/2020 18:26:23.042 session_init DEBUG ] 0x0120000c
+[ 06/02/2020 18:26:23.042 session_init DEBUG ] 0x01200007
+[ 06/02/2020 18:26:23.042 session_init DEBUG ] 0x01400007
+[ 06/02/2020 18:26:23.042 session_init DEBUG ] 0x01200003
+[ 06/02/2020 18:26:23.042 session_init DEBUG ] 0x01200001
+[ 06/02/2020 18:26:23.042 session_init DEBUG ] 0x00400003
+[ 06/02/2020 18:26:23.043 handle_pending_updates DEBUG ] Delayed handling of events, entering critical section
+[ 06/02/2020 18:26:23.044 fill_win DEBUG ] Managing window 0x01000002
+[ 06/02/2020 18:26:23.044 fill_win DEBUG ] Managing window 0x00600020
+[ 06/02/2020 18:26:23.044 fill_win DEBUG ] Managing window 0x0060000e
+[ 06/02/2020 18:26:23.044 map_win_start DEBUG ] Mapping (0x0060000e "(null)")
+[ 06/02/2020 18:26:23.044 win_recheck_client DEBUG ] (0x0060000e): client self (override-redirected)
+[ 06/02/2020 18:26:23.044 win_on_factor_change DEBUG ] Window 0x0060000e ((null)) factor change
+[ 06/02/2020 18:26:23.044 win_determine_shadow DEBUG ] Determining shadow of window 0x0060000e ((null))
+[ 06/02/2020 18:26:23.044 win_set_shadow DEBUG ] Updating shadow property of window 0x0060000e ((null)) to 1
+[ 06/02/2020 18:26:23.044 win_on_factor_change DEBUG ] Window mode changed to 0
+[ 06/02/2020 18:26:23.044 win_on_factor_change DEBUG ] Window 0x0060000e ((null)) factor change
+[ 06/02/2020 18:26:23.044 win_determine_shadow DEBUG ] Determining shadow of window 0x0060000e ((null))
+[ 06/02/2020 18:26:23.044 win_determine_shadow DEBUG ] Shadow disabled by shadow-exclude
+[ 06/02/2020 18:26:23.044 win_set_shadow DEBUG ] Updating shadow property of window 0x0060000e ((null)) to 0
+[ 06/02/2020 18:26:23.044 win_on_factor_change DEBUG ] Window mode changed to 0
+[ 06/02/2020 18:26:23.044 map_win_start DEBUG ] Window (0x0060000e) has type normal
+[ 06/02/2020 18:26:23.044 win_determine_shadow DEBUG ] Determining shadow of window 0x0060000e ((null))
+[ 06/02/2020 18:26:23.044 win_determine_shadow DEBUG ] Shadow disabled by shadow-exclude
+[ 06/02/2020 18:26:23.044 map_win_start DEBUG ] Window 0x0060000e has opacity 0.000000, opacity target is 0.900000
+[ 06/02/2020 18:26:23.044 win_set_flags DEBUG ] Set flags 9 to window 0x0060000e ((null))
+[ 06/02/2020 18:26:23.044 win_on_factor_change DEBUG ] Window 0x0060000e ((null)) factor change
+[ 06/02/2020 18:26:23.044 win_determine_shadow DEBUG ] Determining shadow of window 0x0060000e ((null))
+[ 06/02/2020 18:26:23.044 win_determine_shadow DEBUG ] Shadow disabled by shadow-exclude
+[ 06/02/2020 18:26:23.044 win_on_factor_change DEBUG ] Window mode changed to 0
+[ 06/02/2020 18:26:23.044 win_skip_fading DEBUG ] Skipping fading process of window 0x0060000e ((null))
+[ 06/02/2020 18:26:23.044 fill_win DEBUG ] Managing window 0x0060000d
+[ 06/02/2020 18:26:23.044 map_win_start DEBUG ] Mapping (0x0060000d "(null)")
+[ 06/02/2020 18:26:23.044 win_recheck_client DEBUG ] (0x0060000d): client self (override-redirected)
+[ 06/02/2020 18:26:23.044 win_on_factor_change DEBUG ] Window 0x0060000d ((null)) factor change
+[ 06/02/2020 18:26:23.044 win_determine_shadow DEBUG ] Determining shadow of window 0x0060000d ((null))
+[ 06/02/2020 18:26:23.044 win_set_shadow DEBUG ] Updating shadow property of window 0x0060000d ((null)) to 1
+[ 06/02/2020 18:26:23.044 win_on_factor_change DEBUG ] Window mode changed to 0
+[ 06/02/2020 18:26:23.045 win_on_factor_change DEBUG ] Window 0x0060000d ((null)) factor change
+[ 06/02/2020 18:26:23.045 win_determine_shadow DEBUG ] Determining shadow of window 0x0060000d ((null))
+[ 06/02/2020 18:26:23.045 win_determine_shadow DEBUG ] Shadow disabled by shadow-exclude
+[ 06/02/2020 18:26:23.045 win_set_shadow DEBUG ] Updating shadow property of window 0x0060000d ((null)) to 0
+[ 06/02/2020 18:26:23.045 win_on_factor_change DEBUG ] Window mode changed to 0
+[ 06/02/2020 18:26:23.045 map_win_start DEBUG ] Window (0x0060000d) has type normal
+[ 06/02/2020 18:26:23.045 win_determine_shadow DEBUG ] Determining shadow of window 0x0060000d ((null))
+[ 06/02/2020 18:26:23.045 win_determine_shadow DEBUG ] Shadow disabled by shadow-exclude
+[ 06/02/2020 18:26:23.045 map_win_start DEBUG ] Window 0x0060000d has opacity 0.000000, opacity target is 0.900000
+[ 06/02/2020 18:26:23.045 win_set_flags DEBUG ] Set flags 9 to window 0x0060000d ((null))
+[ 06/02/2020 18:26:23.045 win_on_factor_change DEBUG ] Window 0x0060000d ((null)) factor change
+[ 06/02/2020 18:26:23.045 win_determine_shadow DEBUG ] Determining shadow of window 0x0060000d ((null))
+[ 06/02/2020 18:26:23.045 win_determine_shadow DEBUG ] Shadow disabled by shadow-exclude
+[ 06/02/2020 18:26:23.045 win_on_factor_change DEBUG ] Window mode changed to 0
+[ 06/02/2020 18:26:23.045 win_skip_fading DEBUG ] Skipping fading process of window 0x0060000d ((null))
+[ 06/02/2020 18:26:23.045 fill_win DEBUG ] Managing window 0x00a0000b
+[ 06/02/2020 18:26:23.045 map_win_start DEBUG ] Mapping (0x00a0000b "(null)")
+[ 06/02/2020 18:26:23.045 win_recheck_client DEBUG ] (0x00a0000b): client 0x00a0000b
+[ 06/02/2020 18:26:23.045 win_on_factor_change DEBUG ] Window 0x00a0000b ((null)) factor change
+[ 06/02/2020 18:26:23.045 win_determine_shadow DEBUG ] Determining shadow of window 0x00a0000b ((null))
+[ 06/02/2020 18:26:23.045 win_set_shadow DEBUG ] Updating shadow property of window 0x00a0000b ((null)) to 1
+[ 06/02/2020 18:26:23.045 win_on_factor_change DEBUG ] Window mode changed to 0
+[ 06/02/2020 18:26:23.045 win_on_factor_change DEBUG ] Window 0x00a0000b (zsh) factor change
+[ 06/02/2020 18:26:23.045 win_determine_shadow DEBUG ] Determining shadow of window 0x00a0000b (zsh)
+[ 06/02/2020 18:26:23.045 win_on_factor_change DEBUG ] Window mode changed to 0
+[ 06/02/2020 18:26:23.045 map_win_start DEBUG ] Window (0x00a0000b) has type normal
+[ 06/02/2020 18:26:23.045 win_determine_shadow DEBUG ] Determining shadow of window 0x00a0000b (zsh)
+[ 06/02/2020 18:26:23.045 map_win_start DEBUG ] Window 0x00a0000b has opacity 0.000000, opacity target is 0.850000
+[ 06/02/2020 18:26:23.045 win_set_flags DEBUG ] Set flags 9 to window 0x00a0000b (zsh)
+[ 06/02/2020 18:26:23.045 win_on_factor_change DEBUG ] Window 0x00a0000b (zsh) factor change
+[ 06/02/2020 18:26:23.045 win_determine_shadow DEBUG ] Determining shadow of window 0x00a0000b (zsh)
+[ 06/02/2020 18:26:23.045 win_on_factor_change DEBUG ] Window mode changed to 0
+[ 06/02/2020 18:26:23.045 win_skip_fading DEBUG ] Skipping fading process of window 0x00a0000b (zsh)
+[ 06/02/2020 18:26:23.045 fill_win DEBUG ] Managing window 0x00a00001
+[ 06/02/2020 18:26:23.045 fill_win DEBUG ] Managing window 0x00800004
+[ 06/02/2020 18:26:23.045 fill_win DEBUG ] Managing window 0x01600004
+[ 06/02/2020 18:26:23.045 fill_win DEBUG ] Managing window 0x00400001
+[ 06/02/2020 18:26:23.045 fill_win DEBUG ] Managing window 0x0120185c
+[ 06/02/2020 18:26:23.045 fill_win DEBUG ] Managing window 0x0140000c
+[ 06/02/2020 18:26:23.045 fill_win DEBUG ] Managing window 0x0140001b
+[ 06/02/2020 18:26:23.045 fill_win DEBUG ] Managing window 0x0120000c
+[ 06/02/2020 18:26:23.045 fill_win DEBUG ] Managing window 0x01200007
+[ 06/02/2020 18:26:23.046 fill_win DEBUG ] Managing window 0x01400007
+[ 06/02/2020 18:26:23.046 fill_win DEBUG ] Managing window 0x01200003
+[ 06/02/2020 18:26:23.046 fill_win DEBUG ] Managing window 0x01200001
+[ 06/02/2020 18:26:23.046 fill_win DEBUG ] Managing window 0x00400003
+[ 06/02/2020 18:26:23.046 win_clear_flags DEBUG ] Clear flags 9 from window 0x0060000e ((null))
+[ 06/02/2020 18:26:23.046 win_clear_flags DEBUG ] Clear flags 9 from window 0x0060000d ((null))
+[ 06/02/2020 18:26:23.046 win_clear_flags DEBUG ] Clear flags 9 from window 0x00a0000b (zsh)
+[ 06/02/2020 18:26:23.046 win_on_factor_change DEBUG ] Window 0x00a0000b (zsh) factor change
+[ 06/02/2020 18:26:23.046 win_determine_shadow DEBUG ] Determining shadow of window 0x00a0000b (zsh)
+[ 06/02/2020 18:26:23.046 win_on_factor_change DEBUG ] Window mode changed to 0
+[ 06/02/2020 18:26:23.046 win_update_opacity_target DEBUG ] Window 0x00a0000b (zsh) opacity 0.850000, opacity target 1.000000, set old target 0.850000
+[ 06/02/2020 18:26:23.046 win_skip_fading DEBUG ] Skipping fading process of window 0x00a0000b (zsh)
+[ 06/02/2020 18:26:23.046 win_on_factor_change DEBUG ] Window 0x00a0000b (zsh) factor change
+[ 06/02/2020 18:26:23.046 win_determine_shadow DEBUG ] Determining shadow of window 0x00a0000b (zsh)
+[ 06/02/2020 18:26:23.046 win_on_factor_change DEBUG ] Window mode changed to 0
+[ 06/02/2020 18:26:23.046 handle_pending_updates DEBUG ] Exited critical section
+[ 06/02/2020 18:26:23.046 redirect_start DEBUG ] Redirecting the screen.
+No keycodes found for keysym 269025057.
+[ 06/02/2020 18:26:23.063 glx_has_extension INFO ] Found GLX extension GLX_SGI_video_sync.
+[ 06/02/2020 18:26:23.063 glx_has_extension INFO ] Found GLX extension GLX_SGI_swap_control.
+[ 06/02/2020 18:26:23.063 glx_has_extension INFO ] Missing GLX extension GLX_OML_sync_control.
+[ 06/02/2020 18:26:23.063 glx_has_extension INFO ] Missing GLX extension GLX_MESA_swap_control.
+[ 06/02/2020 18:26:23.063 glx_has_extension INFO ] Found GLX extension GLX_EXT_swap_control.
+[ 06/02/2020 18:26:23.063 glx_has_extension INFO ] Found GLX extension GLX_EXT_texture_from_pixmap.
+[ 06/02/2020 18:26:23.063 glx_has_extension INFO ] Found GLX extension GLX_ARB_create_context.
+[ 06/02/2020 18:26:23.063 glx_has_extension INFO ] Found GLX extension GLX_EXT_buffer_age.
+[ 06/02/2020 18:26:23.123 gl_has_extension INFO ] Missing GL extension GL_GREMEDY_string_marker.
+[ 06/02/2020 18:26:23.123 gl_init DEBUG ] GL_VENDOR = NVIDIA Corporation
+[ 06/02/2020 18:26:23.123 gl_init INFO ] GL vendor is NVIDIA, don't use glFinish
+[ 06/02/2020 18:26:23.123 initialize_backend DEBUG ] Marking window 0x0060000e ((null)) for update after redirection
+[ 06/02/2020 18:26:23.123 initialize_backend DEBUG ] Marking window 0x0060000d ((null)) for update after redirection
+[ 06/02/2020 18:26:23.123 initialize_backend DEBUG ] Marking window 0x00a0000b (zsh) for update after redirection
+[ 06/02/2020 18:26:23.126 glx_find_fbconfig DEBUG ] Looking for FBConfig for RGBA8888, depth 32
+[ 06/02/2020 18:26:23.127 glx_bind_pixmap DEBUG ] depth 32, rgba 1
+[ 06/02/2020 18:26:23.132 win_bind_shadow DEBUG ] New shadow for 0x00a0000b (zsh)
+[ 06/02/2020 18:26:23.132 win_clear_flags DEBUG ] Clear flags 16 from window 0x00a0000b (zsh)
+[ 06/02/2020 18:26:23.132 atom_getter DEBUG ] Atom _XROOTPMAP_ID is 484
+[ 06/02/2020 18:26:23.132 glx_find_fbconfig DEBUG ] Looking for FBConfig for RGBA8880, depth 24
+[ 06/02/2020 18:26:23.133 glx_bind_pixmap DEBUG ] depth 24, rgba 0
+[ 06/02/2020 18:26:23.134 redirect_start DEBUG ] Screen redirected.
+[ 06/02/2020 18:26:23.134 _draw_callback DEBUG ] Re-run _draw_callback
+[ 06/02/2020 18:26:23.134 handle_pending_updates DEBUG ] Delayed handling of events, entering critical section
+[ 06/02/2020 18:26:23.135 ev_handle DEBUG ] event  MapNotify serial 0x000000c7 window 0x0000027d "(Overlay)"
+[ 06/02/2020 18:26:23.135 ev_handle DEBUG ] event     Expose serial 0x000000c7 window 0x0000027d "(Overlay)"
+[ 06/02/2020 18:26:23.135 ev_handle DEBUG ] event CreateNoti serial 0x000000cd window 0x01e00004 "(Failed to get title)"
+[ 06/02/2020 18:26:23.135 add_win DEBUG ] Adding window 0x01e00004
+[ 06/02/2020 18:26:23.135 fill_win DEBUG ] Managing window 0x01e00004
+[ 06/02/2020 18:26:23.135 win_bind_pixmap DEBUG ] New named pixmap for 0x0060000e ((null)) : 0x01000021
+[ 06/02/2020 18:26:23.135 glx_find_fbconfig DEBUG ] Looking for FBConfig for RGBA8880, depth 24
+[ 06/02/2020 18:26:23.136 glx_bind_pixmap DEBUG ] depth 24, rgba 0
+[ 06/02/2020 18:26:23.137 win_clear_flags DEBUG ] Clear flags 2 from window 0x0060000e ((null))
+[ 06/02/2020 18:26:23.137 win_clear_flags DEBUG ] Clear flags 9 from window 0x0060000e ((null))
+[ 06/02/2020 18:26:23.137 win_bind_pixmap DEBUG ] New named pixmap for 0x0060000d ((null)) : 0x01000023
+[ 06/02/2020 18:26:23.137 glx_find_fbconfig DEBUG ] Looking for FBConfig for RGBA8880, depth 24
+[ 06/02/2020 18:26:23.138 glx_bind_pixmap DEBUG ] depth 24, rgba 0
+[ 06/02/2020 18:26:23.139 win_clear_flags DEBUG ] Clear flags 2 from window 0x0060000d ((null))
+[ 06/02/2020 18:26:23.139 win_clear_flags DEBUG ] Clear flags 9 from window 0x0060000d ((null))
+[ 06/02/2020 18:26:23.139 win_bind_pixmap DEBUG ] New named pixmap for 0x00a0000b (zsh) : 0x01000025
+[ 06/02/2020 18:26:23.139 glx_find_fbconfig DEBUG ] Looking for FBConfig for RGBA8888, depth 32
+[ 06/02/2020 18:26:23.139 glx_bind_pixmap DEBUG ] depth 32, rgba 1
+[ 06/02/2020 18:26:23.140 win_clear_flags DEBUG ] Clear flags 2 from window 0x00a0000b (zsh)
+[ 06/02/2020 18:26:23.140 win_clear_flags DEBUG ] Clear flags 9 from window 0x00a0000b (zsh)
+[ 06/02/2020 18:26:23.140 handle_pending_updates DEBUG ] Exited critical section
+[ 06/02/2020 18:26:23.140 x_fence_sync ERROR ] Failed to trigger the fence (X error 136 XSyncBadFence request 134 minor 15 serial 326)
+[ 06/02/2020 18:26:23.140 paint_all_new ERROR ] x_fence_sync failed, xrender-sync-fence will be disabled from now on.
+[ 06/02/2020 18:26:23.142 ev_handle DEBUG ] event    Event 0 serial 0x00000148 window 0000000000 ""
+[ 06/02/2020 18:26:23.142 x_print_error DEBUG ] X error 136 Unknown request 134 minor 17 serial 330
+[ 06/02/2020 18:26:23.195 ev_handle DEBUG ] event PropertyNo serial 0x0000014a window 0x0000027f "(Root window)"
+[ 06/02/2020 18:26:23.197 glx_find_fbconfig DEBUG ] Looking for FBConfig for RGBA8880, depth 24
+[ 06/02/2020 18:26:23.198 glx_bind_pixmap DEBUG ] depth 24, rgba 0
+[ 06/02/2020 18:26:23.199 ev_handle DEBUG ] event PropertyNo serial 0x0000014a window 0x0000027f "(Root window)"
+[ 06/02/2020 18:26:23.199 atom_getter DEBUG ] Atom _XSETROOT_ID is 409
+[ 06/02/2020 18:26:23.311 ev_handle DEBUG ] event PropertyNo serial 0x00000154 window 0x0000027f "(Root window)"
+[ 06/02/2020 18:26:24.556 ev_handle DEBUG ] event PropertyNo serial 0x00000164 window 0x0000027f "(Root window)"

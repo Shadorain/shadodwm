@@ -24,8 +24,10 @@ case $BLOCK_BUTTON in
 	8) mpc prev   | filter ;;
     # Shift Scroll Up: Next Track
 	9) mpc next   | filter ;;
+    # Alt Click: Opens scratchpad for song bar!!!!!!
+    6) xdotool key alt+ctrl+m ;;
     # Shift Click: Open this file
-	6) mpc status | filter ; "$TERMINAL" nvim "$0" ;;
+	10) mpc status | filter ; "$TERMINAL" nvim "$0" ;;
 	*) mpc status | filter ;;
 esac
 # ========================================================================= #
