@@ -46,11 +46,11 @@ static const char *tags[] = { "一", "二", "三", "四", "五", "六", "七", "
 
 // Set window rules
 static const Rule rules[] = {
-	/* class      instance    title       tags mask     iscentered   isfloating   monitor  scratchkey */
-    { "kitty",    NULL,       NULL,       0,            1,           0,           -1,       0 },
-    { NULL,       NULL,   "scratchpad",   0,            1,           1,           -1,      's' },
-    { NULL,       NULL,   "scratchpad2",  0,            0,           1,           -1,      'v' },
-    { NULL,       NULL,   "scratchpad3",  0,            0,           1,           -1,      'm' },
+	/* class      instance    title       tags mask     iscentered   isfloating   monitor  float(x,y,w,h) floatbrd scratchkey */
+    { "kitty",    NULL,       NULL,       0,            1,           0,           -1,      50,50,800,400,     5,      0 },
+    { NULL,       NULL,   "scratchpad",   0,            1,           1,           -1,      50,50,800,400,     5,    's' },
+    { NULL,       NULL,   "scratchpad2",  0,            0,           1,           -1,      50,50,900,400,     5,    'v' },
+    { NULL,       NULL,   "scratchpad3",  0,            0,           1,           -1,      650,0,600,350,     3,    'm' },
 };
 
 static const float mfact     = 0.50; // Size of master area
@@ -121,7 +121,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } }, // Makes all tags active
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = 0 } }, // Focus first mon
 	{ MODKEY,                       XK_period, focusmon,       {.i = 1 } }, // Focus second mon
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = 1 } }, // Sends focused window to first mon
+	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = 0 } }, // Sends focused window to first mon
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = 1 } }, // Sends focused window to second mon
 	TAGKEYS(                        XK_1,                      0) // Focus tag #1
 	TAGKEYS(                        XK_2,                      1) // Focus tag #2
@@ -150,7 +150,7 @@ static Button buttons[] = {
 	{ ClkStatusText,        0,              Button5,        sigdwmblocks,   {.i = 5} }, // Scroll Up
 	{ ClkStatusText,        ShiftMask,      Button4,        sigdwmblocks,   {.i = 8} }, // Shift + Scroll Down
 	{ ClkStatusText,        ShiftMask,      Button5,        sigdwmblocks,   {.i = 9} }, // Shift + Scroll Up
-	{ ClkStatusText,        ShiftMask,      Button2,        sigdwmblocks,   {.i = 10} }, // Shift + Middle Click
+	{ ClkStatusText,        ShiftMask,      Button2,        sigdwmblocks,   {.i = 10}}, // Shift + Middle Click
 	{ ClkStatusText,        ShiftMask,      Button1,        sigdwmblocks,   {.i = 6} }, // Shift + Click
 	{ ClkStatusText,        ShiftMask,      Button3,        spawn,          SHCMD("kitty nvim ~/dwm/dwmblocks/config.h") }, // Shift + Right Click
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },

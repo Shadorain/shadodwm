@@ -94,10 +94,11 @@ struct Client {
 	int bw, oldbw;
 	unsigned int tags;
     int isfixed, iscentered, isfloating, isurgent, neverfocus, oldstate, isfullscreen, issticky;
-    char scratchkey;
 	Client *next;
 	Client *snext;
 	Monitor *mon;
+    int floatborderpx;
+    char scratchkey;
 	Window win;
 };
 
@@ -144,6 +145,8 @@ typedef struct {
 	int iscentered;
 	int isfloating;
 	int monitor;
+    int floatx, floaty, floatw, floath;
+    int floatborderpx;
 	const char scratchkey;
 } Rule;
 
@@ -335,6 +338,13 @@ applyrules(Client *c)
 			c->isfloating = r->isfloating;
 			c->tags |= r->tags;
 			c->scratchkey = r->scratchkey;
+			c->floatborderpx = r->floatborderpx;
+			if (r->isfloating) {
+				c->x = r->floatx;
+				c->y = r->floaty;
+				c->w = r->floatw;
+				c->h = r->floath;
+			}
 			for (m = mons; m && m->num != r->monitor; m = m->next);
 			if (m)
 				c->mon = m;
@@ -1417,7 +1427,10 @@ resizeclient(Client *c, int x, int y, int w, int h)
 	unsigned int gapincr;
 	Client *nbc;
 
-	wc.border_width = c->bw;
+	if (c->isfloating)
+		wc.border_width = c->floatborderpx;
+	else
+		wc.border_width = c->bw;
 
 	/* Get number of clients for the selected monitor */
 	for (n = 0, nbc = nexttiled(selmon->clients); nbc; nbc = nexttiled(nbc->next), n++);

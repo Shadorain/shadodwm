@@ -29,7 +29,7 @@ getSong()
     then
         printf "   %s%s %s%s\n" "$MUSIC" "$current" "$PAUSE" "$y"
     else
-        printf "  %sStopped%s\n" "$MUSIC" "$x"
+        printf "  %sStopped\n" "$MUSIC"
     fi
 }
 pidof -x mpdup >/dev/null 2>&1 || mpdup &

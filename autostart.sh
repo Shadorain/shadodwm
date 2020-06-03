@@ -1,11 +1,10 @@
 killall flameshot
 killall picom
 killall sxhkd
-killall dwmblocks
+
+/home/shadow/dwm/dwmblocks/dwmblocks &
 
 sxhkd -c ~/dwm/sxhkdrc &
 picom --experimental-backends &
 feh --bg-scale --no-fehbg ~/Pictures/Backgrounds/cherry.jpg &
 flameshot &
-~/dwm/dwmblocks/dwmblocks &
-sleep 1; killall dwmblocks; ~/dwm/dwmblocks/dwmblocks &

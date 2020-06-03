@@ -46,11 +46,11 @@ static const char *tags[] = { "一", "二", "三", "四", "五", "六", "七", "
 
 // Set window rules
 static const Rule rules[] = {
-	/* class      instance    title       tags mask     iscentered   isfloating   monitor  scratchkey */
-    { "kitty",    NULL,       NULL,       0,            1,           0,           -1,       0 },
-    { NULL,       NULL,   "scratchpad",   0,            1,           1,           -1,      's' },
-    { NULL,       NULL,   "scratchpad2",  0,            0,           1,           -1,      'v' },
-    { NULL,       NULL,   "scratchpad3",  0,            0,           1,           -1,      'm' },
+	/* class      instance    title       tags mask     iscentered   isfloating   monitor  float(x,y,w,h) floatbrd scratchkey */
+    { "kitty",    NULL,       NULL,       0,            1,           0,           -1,      50,50,500,500,     5,      0 },
+    { NULL,       NULL,   "scratchpad",   0,            1,           1,           -1,      50,50,500,500,     5,    's' },
+    { NULL,       NULL,   "scratchpad2",  0,            0,           1,           -1,      50,50,500,500,     5,    'v' },
+    { NULL,       NULL,   "scratchpad3",  0,            0,           1,           -1,      50,50,500,500,     5,    'm' },
 };
 
 static const float mfact     = 0.50; // Size of master area
