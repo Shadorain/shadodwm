@@ -148,10 +148,10 @@ static Button buttons[] = {
 	{ ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} }, // Right Click
 	{ ClkStatusText,        0,              Button4,        sigdwmblocks,   {.i = 4} }, // Scroll Down
 	{ ClkStatusText,        0,              Button5,        sigdwmblocks,   {.i = 5} }, // Scroll Up
+	{ ClkStatusText,        ShiftMask,      Button1,        sigdwmblocks,   {.i = 6} }, // Shift + Click
+	{ ClkStatusText,        ShiftMask,      Button2,        sigdwmblocks,   {.i = 7} }, // Shift + Middle Click
 	{ ClkStatusText,        ShiftMask,      Button4,        sigdwmblocks,   {.i = 8} }, // Shift + Scroll Down
 	{ ClkStatusText,        ShiftMask,      Button5,        sigdwmblocks,   {.i = 9} }, // Shift + Scroll Up
-	{ ClkStatusText,        ShiftMask,      Button2,        sigdwmblocks,   {.i = 10}}, // Shift + Middle Click
-	{ ClkStatusText,        ShiftMask,      Button1,        sigdwmblocks,   {.i = 6} }, // Shift + Click
 	{ ClkStatusText,        ShiftMask,      Button3,        spawn,          SHCMD("kitty nvim ~/dwm/dwmblocks/config.h") }, // Shift + Right Click
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },

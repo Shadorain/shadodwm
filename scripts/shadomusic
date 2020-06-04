@@ -45,10 +45,10 @@ case $BLOCK_BUTTON in
 	8) mpc prev   | getSong ;;
     # Shift Scroll Up: Next Track
 	9) mpc next   | getSong ;;
-    # Alt Click: Opens scratchpad for song bar!!!!!!
-    6) xdotool key alt+ctrl+m ;;
+    # Shift Middle Click: Opens scratchpad for song bar!!!!!!
+    7) kitty -T scratchpad3 ncmpcpp;;
     # Shift Click: Open this file
-	10) mpc status | getSong ; "$TERMINAL" nvim "$0" ;;
+	6) mpc status | getSong ; "$TERMINAL" nvim "$0" ;;
 	*) mpc status | getSong ;;
 esac
 # ========================================================================= #
