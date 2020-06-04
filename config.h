@@ -47,7 +47,7 @@ static const char *tags[] = { "一", "二", "三", "四", "五", "六", "七", "
 // Set window rules
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     iscentered   isfloating   monitor  float(x,y,w,h) floatbrd scratchkey */
-    { "kitty",    NULL,       NULL,       0,            1,           0,           -1,      50,50,800,400,     5,      0 },
+    { "kitty",    NULL,       NULL,       0,            1,           0,           -1,      50,50,800,400,     5,     0  },
     { NULL,       NULL,   "scratchpad",   0,            1,           1,           -1,      50,50,800,400,     5,    's' },
     { NULL,       NULL,   "scratchpad2",  0,            0,           1,           -1,      50,50,900,400,     5,    'v' },
     { NULL,       NULL,   "scratchpad3",  0,            0,           1,           -1,      650,0,600,350,     3,    'm' },

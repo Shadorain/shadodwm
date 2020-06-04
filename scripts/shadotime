@@ -21,5 +21,6 @@ case $BLOCK_BUTTON in
 esac
 
 # Output
-date "+%I:%M%p"
+timestr=$(date "+%I:%M%p")
+printf "|  %s" "$timestr"
 # ================================================================ #

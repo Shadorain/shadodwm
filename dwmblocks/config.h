@@ -1,8 +1,8 @@
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
 static const Block blocks[] = {
 	{"",	    "shadomusic",	        0,	11},
-	{"|  ",	    "shadotime",	        30,	1},
-	{"|  ",	    "shadovol",	            0,	10},
+	{"",	    "shadotime",	        30,	1},
+	{"",	    "shadovol",	            0,	10},
 	{"",	    "shadobat",	            5,	3},
 };
 

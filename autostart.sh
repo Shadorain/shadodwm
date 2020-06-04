@@ -1,3 +1,4 @@
+killall dwmblocks
 killall flameshot
 killall picom
 killall sxhkd

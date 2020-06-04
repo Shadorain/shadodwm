@@ -44,5 +44,5 @@ else
 fi
 
 # Output
-printf "%s" "$icon" # Change to "$vol" to display volume number
+printf "|  %s" "$icon" # Change to "$vol" to display volume number
 # ============================================================== #
