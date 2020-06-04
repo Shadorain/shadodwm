@@ -13,6 +13,12 @@ DISCHARGING=" "
 CHARGING=" "
 UNKNOWN=" "
 WARNING=" "
+## Set colors here
+# FUL="#00f5cf"
+# NORM="#8460ff"
+# MID="#ff6a8c"
+# WARNING="#fb5091"
+# CRITICAL="#ff0059"
 
 case $BLOCK_BUTTON in
     # Click: Opens up my rofi battery menu
@@ -28,12 +34,30 @@ esac
 # Checks for batteries in the system folder
 for battery in /sys/class/power_supply/BAT?
 do
-	capacity=$(cat "$battery"/capacity) || break
 	status=$(sed "s/[Dd]ischarging/$DISCHARGING/;s/[Nn]ot charging/$DISCHARGING/;s/[Cc]harging/$CHARGING/;s/[Uu]nknown/$UNKNOWN/;s/[Ff]ull/$FULL/" "$battery"/status)
+    # Get capacity
+    capacity=$(cat "$battery"/capacity) || break
+    # # Check battery with color: as of now colors arent supported, but hopefully someday!!!
+    # if [ "$capacity" -le 100 ] && [ "$capacity" -gt 90 ]
+    # then
+    #     COL=$FUL
+    # elif [ "$capacity" -le 90 ] && [ "$capacity" -gt 50 ]
+    # then
+    #     COL=$NORM
+    # elif [ "$capacity" -le 50 ] && [ "$capacity" -gt 30 ]
+    # then
+    #     COL=$MID
+    # elif [ "$capacity" -le 30 ] && [ "$capacity" -gt 15 ]
+    # then
+    #     COL=$WARNING
+    # elif [ "$capacity" -le 15 ] && [ "$capacity" -ge 0 ]
+    # then
+    #     COL=$CRITICAL
+    # fi
     # Checks if battery is under 25% and shows warning
 	[ "$capacity" -le 25 ] && [ "$status" = "$DISCHARGING" ] && status="$WARNING"
 
     # Output
-	printf " %s " "$status"
+	printf " %s \n" "$status"
 done
 # =========================================================== #

@@ -2,7 +2,7 @@ killall flameshot
 killall picom
 killall sxhkd
 
-/home/shadow/dwm/dwmblocks/dwmblocks &
+~/dwm/dwmblocks/dwmblocks &
 
 sxhkd -c ~/dwm/sxhkdrc &
 picom --experimental-backends &
