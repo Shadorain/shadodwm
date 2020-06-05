@@ -51,7 +51,7 @@ static const Rule rules[] = {
     { "kitty",    NULL,       NULL,       0,            1,           0,           -1,      50,50,800,400,     5,     0  },
     { NULL,       NULL,   "scratchpad",   0,            1,           1,           -1,      50,50,800,400,     5,    's' },
     { NULL,       NULL,   "scratchpad2",  0,            0,           1,           -1,      50,50,900,400,     5,    'v' },
-    { NULL,       NULL,   "scratchpad3",  0,            0,           1,           -1,      650,0,600,350,     3,    'm' },
+    { NULL,       NULL,   "scratchpad3",  0,            0,           1,           -1,      50,50,470,232,     3,    'm' },
 };
 
 static const float mfact     = 0.50; // Size of master area
@@ -75,7 +75,7 @@ static const Layout layouts[] = {
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 // Shell spawning helper
-#define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+#define SHCMD(cmd) { .v = (const char*[]){ "/bin/zsh", "-c", cmd, NULL } }
 
 // Commands
 static char dmenumon[2] = "0"; // component of dmenucmd, manipulated in spawn()

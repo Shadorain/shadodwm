@@ -170,16 +170,16 @@ XF86MonBrightnessUp
 # -- Music Controls -- # {{{
 # Toggle Play/Pause
 XF86AudioPlay
-    mpc --host=127.0.0.1 --port=6600 toggle && dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+    mpc --host=127.0.0.1 --port=6600 toggle
 # Next Track
 XF86AudioNext
-    mpc --host=127.0.0.1 --port=6600 next && dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+    mpc --host=127.0.0.1 --port=6600 next
 # Previous Track
 XF86AudioPrev
-    mpc --host=127.0.0.1 --port=6600 prev && dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+    mpc --host=127.0.0.1 --port=6600 prev
 # Stop Playing
 ctrl + XF86AudioStop
-    mpc --host=127.0.0.1 --port=6600 shuffle && notify-send "MPC" "Toggled Shuffle"
+    mpc --host=127.0.0.1 --port=6600 shuffle
 # Start MPD
 super + alt + m
     kitty mpd
