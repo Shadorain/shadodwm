@@ -30,14 +30,15 @@ static const char light_gray[]       = "#2F2F4a";
 static const char light_purple2[]    = "#A882DD";
 static const char light_purple[]     = "#6546e0";
 static const char light_purpleblue[] = "#8897F4";
+static const char sweet_purple[]     = "#9188ff";
 static const char *colors[][3]       = {
 	/* scheme               fg            bg          border   */
 	[SchemeNorm]     = { light_foreground, dark_background, light_gray        },
 	[SchemeSel]      = { light_foreground, light_gray,      light_purpleblue  },
-	[SchemeStatus]   = { light_purple3,    dark_background, none              }, // Statusbar right
+	[SchemeStatus]   = { sweet_purple,     dark_background, none              }, // Statusbar right
 	[SchemeTagsSel]  = { light_pink,       light_gray,      none              }, // Tagbar left selected
     [SchemeTagsNorm] = { light_purple3,    dark_background, none              }, // Tagbar left unselected
-    [SchemeInfoSel]  = { light_pink,       light_gray,      none              }, // infobar middle  selected
+    [SchemeInfoSel]  = { light_pink,       dark_background, none              }, // infobar middle  selected
     [SchemeInfoNorm] = { light_foreground, dark_background, none              }, // infobar middle  unselected
 };
 
@@ -116,7 +117,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} }, // Sets tag in monocle mode
 	{ MODKEY|ControlMask|ShiftMask, XK_f,      togglefloating, {0} }, // Toggles floating on focused window
 	{ MODKEY,                       XK_s,      togglesticky,   {0} }, // Toggles sticky on focued window
-   	{ MODKEY,		            	XK_Insert,	spawn,	       SHCMD("notify-send \" : \" \"$(xclip -o -selection clipboard)\"") }, // Prints clipboard to a notification
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } }, // Displays all tags at once
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } }, // Makes all tags active
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = 0 } }, // Focus first mon
@@ -134,6 +134,10 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8) // Focus tag #9
     { MODKEY|ShiftMask,             XK_r,      self_restart,   {0} }, // Restart dwm without quit
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} }, // Quit dwm
+    /* ----------------------- Custom Binds -----------------------------*/
+   	{ MODKEY,		            	XK_Insert,	spawn,	       SHCMD("notify-send \" : \" \"$(xclip -o -selection clipboard)\"") }, // Prints clipboard to a notification
+    { MODKEY|ShiftMask,           XK_b,         spawn,         {.v = "~/dwm/dwmblocks/dwmblocks &"} }, //Restart dwmblocks
+    { MODKEY|ControlMask,         XK_b,         spawn,         SHCMD("killall dwmblocks") }, //Restart dwmblocks
 };
 
 /* button definitions */
