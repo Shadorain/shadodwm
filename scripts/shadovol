@@ -30,7 +30,7 @@ esac
 
 volstat=$(pactl list sinks)
 # Checks if muted
-echo "$volstat" | grep -q "Mute: yes" && printf "$MUTE" && exit
+echo "$volstat" | grep -q "Mute: yes" && printf "|  $MUTE" && exit
 # Gets current volume
 vol="$(echo "$volstat" | grep '[0-9]\+%' | sed "s,.* \([0-9]\+\)%.*,\1,;1q")"
 

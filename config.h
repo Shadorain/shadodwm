@@ -136,8 +136,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} }, // Quit dwm
     /* ----------------------- Custom Binds -----------------------------*/
    	{ MODKEY,		            	XK_Insert,	spawn,	       SHCMD("notify-send \" : \" \"$(xclip -o -selection clipboard)\"") }, // Prints clipboard to a notification
-    { MODKEY|ShiftMask,           XK_b,         spawn,         {.v = "~/dwm/dwmblocks/dwmblocks &"} }, //Restart dwmblocks
-    { MODKEY|ControlMask,         XK_b,         spawn,         SHCMD("killall dwmblocks") }, //Restart dwmblocks
+    { MODKEY|ControlMask,         XK_b,         spawn,         SHCMD("killall dwmblocks; ~/dwm/dwmblocks/dwmblocks &") }, //Restart dwmblocks
 };
 
 /* button definitions */
