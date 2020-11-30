@@ -1,7 +1,7 @@
 /* ======================================================= # */
 /*  _________                _____.__           .__     
     \_   ___ \  ____   _____/ ____\__| ____     |  |__  
-    /    \  \/ /  _ \ /    \   __\|  |/ ___\    |  |  \ 
+    /    \  \/ /  _ \ /    \   __\|  |/ ___\    |  |  \
     \     \___(  <_> )   |  \  |  |  / /_/  >   |   Y  \
      \______  /\____/|___|  /__|  |__\___  / /\ |___|  /
             \/            \/        /_____/  \/      \/  */
@@ -92,6 +92,7 @@ static const char *scratchpadcmd3[] = {"m", "kitty", "-T", "scratchpad3", "ncmpc
 #include "movestack.c"
 // Keybinds
 static Key keys[] = {
+    { MODKEY,                       XK_p       spawn,           {"betterlockscreen blah blah"}}
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } }, // Dmenu
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },  // Open terminal
