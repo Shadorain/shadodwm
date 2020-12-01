@@ -7,5 +7,7 @@ killall dwmblocks; ~/dwm/dwmblocks/dwmblocks &
 
 sxhkd -c ~/dwm/sxhkdrc &
 picom --experimental-backends &
-feh --bg-scale --no-fehbg ~/Pictures/Backgrounds/cherry.jpg &
+# feh --no-fehbg ~/Pictures/Backgrounds/cherry.jpg &
+# feh --bg-scale --no-fehbg $HOME/Pictures/Backgrounds/forest.png &
+feh --bg-scale --no-fehbg $HOME/Pictures/Backgrounds/tripmon/utopia.png
 flameshot &

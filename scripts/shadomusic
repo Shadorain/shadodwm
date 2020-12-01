@@ -16,9 +16,9 @@ x="  "
 y=" "
 
 # Gets current song
-current=$(mpc current)
+current=$(mpc --host=localhost --port=6601 current)
 # Finds song state
-state=$(mpc status | awk '{print $1}' | awk 'NR==2')
+state=$(mpc --host=localhost --port=6601 status | awk '{print $1}' | awk 'NR==2')
 # Function to check state of song
 getSong()
 {
@@ -36,23 +36,23 @@ pidof -x mpdup >/dev/null 2>&1 || mpdup &
 
 case $BLOCK_BUTTON in
     # Click: Toggles Play/Pause
-	1) mpc toggle | getSong ;;
+	1) mpc --host=localhost --port=6601 toggle | getSong ;;
     # Middle Click: Opens ncmpcpp
-	2) mpc status | getSong ; setsid -f "$TERMINAL" ncmpcpp ;;
+	2) mpc --host=localhost --port=6601 status | getSong ; setsid -f "$TERMINAL" ncmpcpp ;;
     # Right Click: Opens up my rofi mpd menu
-	3) mpc status | getSong ; ~/.config/rofi/scripts/mpd.sh ;;
+	3) mpc --host=localhost --port=6601 status | getSong ; ~/.config/rofi/scripts/mpd.sh ;;
     # Scroll Down: Seek backwards
-    4) mpc seek +2;;
+    4) mpc --host=localhost --port=6601 seek +2;;
     # Scroll Up: Seek forwards
-    5) mpc seek -2;;
+    5) mpc --host=localhost --port=6601 seek -2;;
     # Shift Click: Open this file
-	6) mpc status | getSong ; "$TERMINAL" nvim "$0" ;;
+	6) mpc --host=localhost --port=6601 status | getSong ; "$TERMINAL" nvim "$0" ;;
     # Shift Middle Click: Opens scratchpad for song bar!!!!!!
-    7) kitty -T scratchpad3 ncmpcpp;;
+    7) st -T scratchpad3 -e ncmpcpp;;
     # Shift Scroll Down: Previous Track
-	8) mpc prev   | getSong ;;
+	8) mpc --host=localhost --port=6601 prev   | getSong ;;
     # Shift Scroll Up: Next Track
-	9) mpc next   | getSong ;;
-	*) mpc status | getSong ;;
+	9) mpc --host=localhost --port=6601 next   | getSong ;;
+	*) mpc --host=localhost --port=6601 status | getSong ;;
 esac
 # ========================================================================= #

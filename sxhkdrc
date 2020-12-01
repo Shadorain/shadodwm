@@ -11,11 +11,6 @@ super + Escape
 # Exit dwm
 super + shift + Escape
     killall dwm
-
-# Swap GPU's
-super + ctrl + @F12
-    /home/shadow/.config/scripts/switch_gpu
-
 #}}}
 # --- Window Controls --- # {{{
 # -- Window Movement -- # {{{
@@ -28,131 +23,101 @@ super + ctrl + @F12
 # }}}
 #}}}
 # --- Utilities --- # {{{
-# Terminal Emulator
-super + Return
-    kitty
-# -- File Manager Controls -- # {{{
-# Vifm
-super + v
-    kitty /home/shadow/.config/vifm/scripts/vifmrun
-# Dolphin
-super + ctrl + d
-    dolphin
-# }}}
 # -- Rofi Config -- # {{{
-super + @space
-	/home/shadow/.config/scripts/launcher
-# Rofi Calc
-super + ctrl + @space
-    /home/shadow/.config/scripts/launcher-calc
-# Rofi Windows Menu
-super + Tab
-    /home/shadow/.config/scripts/launcher-window
-# - ROFI BLOCKS -
-# Apps menu
-super + a
-    /home/shadow/.config/rofi/scripts/apps.sh
+# super + @space
+# 	/home/shadow/.config/scripts/launcher
+# # Rofi Calc
+# super + ctrl + @space
+#     /home/shadow/.config/scripts/launcher-calc
+# # Rofi Windows Menu
+# super + Tab
+#     /home/shadow/.config/scripts/launcher-window
+# # - ROFI BLOCKS -
+# # Apps menu
+# super + a
+#     /home/shadow/.config/rofi/scripts/apps.sh
 
-# Power menu
-super + s
-    /home/shadow/.config/rofi/scripts/menu_powermenu.sh
+# # Power menu
+# super + s
+#     /home/shadow/.config/rofi/scripts/menu_powermenu.sh
 
-# Launcher FS
-super + e
-    /home/shadow/.config/rofi/launchers/launcher.sh
+# # Launcher FS
+# super + e
+#     /home/shadow/.config/rofi/launchers/launcher.sh
 
-super + m
-    /home/shadow/.config/rofi/scripts/mpd.sh
+# super + m
+#     /home/shadow/.config/rofi/scripts/mpd.sh
     
-super + d
-    /home/shadow/.config/rofi/scripts/time.sh
+# super + d
+#     /home/shadow/.config/rofi/scripts/time.sh
 
-super + alt + v    
-    /home/shadow/.config/rofi/scripts/volume.sh
+# super + alt + v    
+#     /home/shadow/.config/rofi/scripts/volume.sh
 
-super + alt + b
-    /home/shadow/.config/rofi/scripts/battery.sh
+# super + alt + b
+#     /home/shadow/.config/rofi/scripts/battery.sh
 
-super + w
-    /home/shadow/.config/rofi/scripts/network.sh
+# super + w
+#     /home/shadow/.config/rofi/scripts/network.sh
 
-super + q
-    /home/shadow/.config/rofi/scripts/quicklinks.sh
+# super + q
+#     /home/shadow/.config/rofi/scripts/quicklinks.sh
 
-super + g
-    /home/shadow/.config/rofi/scripts/gitrepos.sh
+# super + g
+#     /home/shadow/.config/rofi/scripts/gitrepos.sh
 # }}}
 # Calcurse
 super + ctrl + m
-    kitty calcurse
+    st -e calcurse
 # ADB 
-super + alt + a
-    kitty killall adb && adb tcpip 5555 && adb connect 192.168.1.180:5555
-# Scrcpy
-super + alt + s
-    kitty scrcpy -m 1024 &
+# super + alt + a
+#     kitty killall adb && adb tcpip 5555 && adb connect 192.168.1.180:5555
+# # Scrcpy
+# super + alt + s
+#     kitty scrcpy -m 1024 &
 # Browser
 super + b
-    firefox
+    firefox-bin
 # Discord, Spotify, VBox
-super + shift + {d, s, v}
-	{discord, spotify, virtualbox}
-# Pulsemixer, HTop, Wifi-Menu
-super + ctrl + {a,t,i}
-	kitty {pulsemixer, htop, sudo wifi-menu}
+super + shift + {d, v, g}
+	{discord, virtualbox, ghidra}
+super + ctrl + {d, v}
+	{killall discord, killall virtualbox}
+super + e
+    emacsclient -c
 
+super + x: c
+    clipmenu
 # -- Screenshots -- # {{{
-# Fullscreen Shot
-@Print
-    scrot '/home/shadow/Pictures/Screenshots/%F_%T.png' && notify-send -a Scrot "Fullscreen" "Took a screenshot." 
-# Monitor Shot
-super + alt + @Print
-    flameshot screen -r -c -p /home/shadow/Pictures/Screenshots && notify-send -a Flameshot "Monitor" "Took a screenshot."
-# Window Shot
-super + @Print
-    scrot -u '/home/shadow/Pictures/Screenshots/%F_%T.png' && notify-send -a Scrot "Window" "Took a screenshot."
-# Area Clipboard
+# Area
 shift + ctrl + @Print
-    flameshot gui --path /home/shadow/Pictures/Screenshots
-    #scrot -s -e 'xclip -selection clipboard -target image/png -i $f' && notify-send -a Scrot "Area Clip" "Took clip."
-# Area Shot then Wipe
-shift + alt + @Print
-    scrot '/tmp/%F_%T.png' -e 'xclip -selection clipboard -target image/png -i $f && rm $f' && notify-send -a Scrot "Area Wipe" "Took clip, deleted image."
-# Area Shot
+    flameshot gui -p ~/Pictures/Screenshots
+# Fullscreen
+@Print 
+    scrot '~/Pictures/Screenshots/%F_%T.png'
+#Monitor
+super + alt + @Print
+    flameshot screen -r -c -p ~/Pictures/Screenshots
+# Window
 ctrl + @Print
-    scrot -sf '/home/shadow/Pictures/Screenshots/%F_%T.png' && notify-send -a Scrot "Area Save" "Took a screenshot."
+    scrot -u '~/Pictures/Screenshots'
+# Imgur
+alt + ctrl + @Print
+    ~/.config/scripts/imgurup
 # }}}
 # -- Youtube -- # {{{
 # YT Download
 super + shift + y
-    ~/.config/bin/ytdl
+    ~/.config/scripts/ytdl
 # YT Play
 super + y
-    ~/.config/bin/ytplay
-# }}}
-# -- Dunst Controls -- # {{{
-## Turn on Do Not Disturb
-#super + `
-#    do-not-disturb -p
-## Turn off Do Not Disturd
-#super + ctrl + `
-#    do-not-disturb -u 
+    ~/.config/scripts/ytplay
 # }}}
 #}}}
 # --- System --- # {{{
-# Restart / Shutdown
-super + shift + {r,t}
-    /home/shadow/.config/rofi/scripts/menu_powermenu.sh
-
 # Lockscreen
 super + p
-    betterlockscreen -l blur -r 1920x1080  -b 0.2 -t "Welcome back, Shado..."
-	#/home/shadow/.i3/i3lock-multimonitor/lock
-
-XF86PowerDown
-    /home/shadow/.config/rofi/scripts/menu_powermenu.sh
-XF86PowerOff
-    /home/shadow/.config/rofi/scripts/menu_powermenu.sh
+    betterlockscreen -l -t "Welcome back, Shado..."
 # -- Audio Config -- # {{{
 XF86AudioLowerVolume
 	pulsemixer --change-volume -2; pkill -RTMIN+10 dwmblocks
@@ -170,29 +135,28 @@ XF86MonBrightnessUp
 # -- Music Controls -- # {{{
 # Toggle Play/Pause
 XF86AudioPlay
-    mpc --host=127.0.0.1 --port=6600 toggle
+    mpc --host=127.0.0.1 --port=6601 toggle
 # Next Track
 XF86AudioNext
-    mpc --host=127.0.0.1 --port=6600 next
+    mpc --host=127.0.0.1 --port=6601 next
 # Previous Track
 XF86AudioPrev
-    mpc --host=127.0.0.1 --port=6600 prev
+    mpc --host=127.0.0.1 --port=6601 prev
 # Stop Playing
 ctrl + XF86AudioStop
-    mpc --host=127.0.0.1 --port=6600 shuffle
-# Start MPD
-super + alt + m
-    kitty mpd
+    mpc --host=127.0.0.1 --port=6601 shuffle
 # Open Ncmpcpp 
-super + shift + m
-    kitty ncmpcpp
+# super + shift + m
+#     kitty ncmpcpp
 # }}}
 # Set Display
-@F7
-    ~/.screenlayout/right2.sh
+alt + @F7
+    ~/.screenlayout/dwm.sh
 # Compositor 
-super + @F9
+alt + @F9
     killall picom
+alt + shift + @F9
+    picom --experimental-backends &
 #}}}
 # ----------------------------------------------------- #
 

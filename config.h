@@ -12,8 +12,8 @@ static const unsigned int gappx      = 4; // Gap size in pixels
 static const unsigned int snap       = 4; // Distance for window to snap
 static const int showbar             = 1; // 1:show, 0:no bar
 static const int topbar              = 1; // 0 for bottom, 1 for top
-static const char *fonts[]           = { "Agave:size=15", "monospace:size=13" }; // Mainly for the bar
-static const char dmenufont[]        = { "monospace:size=10" }; // Dmenu
+static const char *fonts[]           = { "Source Code Pro:size=13", "monospace:size=13" }; // Mainly for the bar
+/* static const char dmenufont[]        = { "monospace:size=10" }; // Dmenu */
 // Color select zone
 static const char none[]             = "#000000"; // Placeholder for no color
 static const char dark_background[]  = "#1b1b29";
@@ -38,8 +38,9 @@ static const char *colors[][3]       = {
 	[SchemeStatus]   = { sweet_purple,     dark_background, none              }, // Statusbar right
 	[SchemeTagsSel]  = { light_pink,       light_gray,      none              }, // Tagbar left selected
     [SchemeTagsNorm] = { light_purple3,    dark_background, none              }, // Tagbar left unselected
-    [SchemeInfoSel]  = { light_pink,       dark_background, none              }, // infobar middle  selected
-    [SchemeInfoNorm] = { light_foreground, dark_background, none              }, // infobar middle  unselected
+    [SchemeInfoSel]  = { none,       dark_background, none              }, // infobar middle  selected
+    /* [SchemeInfoSel]  = { light_pink,       dark_background, none              }, // infobar middle  selected */
+    [SchemeInfoNorm] = { none, dark_background, none              }, // infobar middle  unselected
 };
 
 // Tag naming
@@ -48,7 +49,7 @@ static const char *tags[] = { "一", "二", "三", "四", "五", "六", "七", "
 // Set window rules
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     iscentered   isfloating   monitor  float(x,y,w,h) floatbrd scratchkey */
-    { "kitty",    NULL,       NULL,       0,            1,           0,           -1,      50,50,800,400,     5,     0  },
+    { "st",       NULL,       NULL,       0,            1,           0,           -1,      50,50,800,400,     5,     0  },
     { NULL,       NULL,   "scratchpad",   0,            1,           1,           -1,      50,50,800,400,     5,    's' },
     { NULL,       NULL,   "scratchpad2",  0,            0,           1,           -1,      50,50,900,400,     5,    'v' },
     { NULL,       NULL,   "scratchpad3",  0,            0,           1,           -1,      50,50,470,232,     3,    'm' },
@@ -79,27 +80,33 @@ static const Layout layouts[] = {
 
 // Commands
 static char dmenumon[2] = "0"; // component of dmenucmd, manipulated in spawn()
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", dark_background, "-nf", light_foreground, "-sb", light_gray, "-sf", light_foreground, NULL }; // Basic dmenu configuration
-static const char *termcmd[]  = { "kitty", NULL }; // Set your preferred terminal here
+/* static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", dark_background, "-nf", light_foreground, "-sb", light_gray, "-sf", light_foreground, NULL }; // Basic dmenu configuration */
+static const char *dmenucmd[] = { "dmenu_run", NULL }; // Basic dmenu configuration
+static const char *termcmd[]  = { "st", NULL }; // Set your preferred terminal here
 
 // Named scratchpad commands
 //                     cmdname         key  program settitle  title         command 
-static const char *scratchpadcmd[]  = {"s", "kitty", "-T", "scratchpad",     NULL  }; 
-static const char *scratchpadcmd2[] = {"v", "kitty", "-T", "scratchpad2", "vifmrun"}; 
-static const char *scratchpadcmd3[] = {"m", "kitty", "-T", "scratchpad3", "ncmpcpp"}; 
+static const char *scratchpadcmd[]  = {"s", "st", "-T", "scratchpad",     NULL  }; 
+static const char *scratchpadcmd2[] = {"v", "st", "-T", "scratchpad2", "-e vifmrun"}; 
+static const char *scratchpadcmd3[] = {"m", "st", "-T", "scratchpad3", "-e ncmpcpp-ueberzug"}; 
 
 #include "selfrestart.c"
 #include "movestack.c"
 // Keybinds
-static Key keys[] = {
-    { MODKEY,                       XK_p       spawn,           {"betterlockscreen blah blah"}}
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } }, // Dmenu
-	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },  // Open terminal
+static Key keys[] = {
+	// Specific
+	{ MODKEY,                       XK_b,      togglebar,      {0} }, // Toggles statusbar
+    { MODKEY|ShiftMask,             XK_r,      self_restart,   {0} }, // Restart dwm without quit
+	{ MODKEY|ControlMask,           XK_r,      quit,           {0} }, // Quit dwm
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },  // Open terminal
+	// Scratchpads
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd  } }, // Open scratchpad 's'
 	{ MODKEY|ShiftMask,             XK_grave,  togglescratch,  {.v = scratchpadcmd2 } }, // Open scratchpad 'v'
 	{ MODKEY|ControlMask,           XK_m,      togglescratch,  {.v = scratchpadcmd3 } }, // Open scratchpad 'm'
-	{ MODKEY,                       XK_b,      togglebar,      {0} }, // Toggles statusbar
+	// Launcher 
+	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } }, // Dmenu
+	// Windows
 	{ MODKEY,                       XK_r,      rotatestack,    {.i = +1 } }, // Rotates windows around the stack (Up)
 	{ MODKEY|ShiftMask,             XK_r,      rotatestack,    {.i = -1 } }, // Rotates windows around the stack (Down)
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } }, // Shift window focus up stack
@@ -112,6 +119,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } }, // Moves focused window down stack
 	{ MODKEY,                       XK_Tab,    view,           {0} }, // Swaps to last focused tag
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} }, // Kills focused window
+	// Layouts
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, // Sets tag in tiled mode
 	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[1]} }, // Sets tag in floating mode
     { MODKEY,                       XK_f,      fullscreen,     {0} }, // Sets current window as fullscreen
@@ -120,10 +128,12 @@ static Key keys[] = {
 	{ MODKEY,                       XK_s,      togglesticky,   {0} }, // Toggles sticky on focued window
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } }, // Displays all tags at once
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } }, // Makes all tags active
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = 0 } }, // Focus first mon
-	{ MODKEY,                       XK_period, focusmon,       {.i = 1 } }, // Focus second mon
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = 0 } }, // Sends focused window to first mon
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = 1 } }, // Sends focused window to second mon
+	{ MODKEY,                       XK_q,	   focusmon,       {.i = 0 } }, // Focus first mon
+	{ MODKEY,                       XK_w,	   focusmon,       {.i = 1 } }, // Focus second mon
+	{ MODKEY,                       XK_e,	   focusmon,       {.i = -2 } }, // Focus second mon
+	{ MODKEY|ShiftMask,             XK_q,      tagmon,         {.i = 0 } }, // Sends focused window to first mon
+	{ MODKEY|ShiftMask,             XK_w,      tagmon,         {.i = 1 } }, // Sends focused window to second mon
+	{ MODKEY|ShiftMask,             XK_e,      tagmon,         {.i = 2 } }, // Sends focused window to third mon
 	TAGKEYS(                        XK_1,                      0) // Focus tag #1
 	TAGKEYS(                        XK_2,                      1) // Focus tag #2
 	TAGKEYS(                        XK_3,                      2) // Focus tag #3
@@ -133,8 +143,6 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6) // Focus tag #7
 	TAGKEYS(                        XK_8,                      7) // Focus tag #8
 	TAGKEYS(                        XK_9,                      8) // Focus tag #9
-    { MODKEY|ShiftMask,             XK_r,      self_restart,   {0} }, // Restart dwm without quit
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} }, // Quit dwm
     /* ----------------------- Custom Binds -----------------------------*/
    	{ MODKEY,		            	XK_Insert,	spawn,	       SHCMD("notify-send \" : \" \"$(xclip -o -selection clipboard)\"") }, // Prints clipboard to a notification
     { MODKEY|ControlMask,         XK_b,         spawn,         SHCMD("killall dwmblocks; ~/dwm/dwmblocks/dwmblocks &") }, //Restart dwmblocks
@@ -156,7 +164,7 @@ static Button buttons[] = {
 	{ ClkStatusText,        ShiftMask,      Button2,        sigdwmblocks,   {.i = 7} }, // Shift + Middle Click
 	{ ClkStatusText,        ShiftMask,      Button4,        sigdwmblocks,   {.i = 8} }, // Shift + Scroll Down
 	{ ClkStatusText,        ShiftMask,      Button5,        sigdwmblocks,   {.i = 9} }, // Shift + Scroll Up
-	{ ClkStatusText,        ShiftMask,      Button3,        spawn,          SHCMD("kitty nvim ~/dwm/dwmblocks/config.h") }, // Shift + Right Click
+	{ ClkStatusText,        ShiftMask,      Button3,        spawn,          SHCMD("st -e nvim ~/dwm/dwmblocks/config.h") }, // Shift + Right Click
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY|ShiftMask,Button1,       movemouse,      {.i = 1} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
